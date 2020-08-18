@@ -1,0 +1,55 @@
+<header>
+    <div id="navbar" class = "bg-dark">
+        <div id = 'left-nav'>
+            <img src = "assets/images/eroschat_logo.png" alt = "brand-logo">
+        </div>
+        <div id = 'right-nav'>
+            <% if(locals.user){ %>
+                <div id = 'friend-list'>
+                    <a href="/users/show/friend-list">
+                        <i class="material-icons" style="font-size:30px;color:#adb5bd;cursor: pointer;">supervisor_account</i>
+                    </a>
+                </div>
+                <div>
+                    <a href="/users/show/messages">
+                        <i class="material-icons" style="color:#adb5bd;cursor: pointer;">textsms</i>
+                    </a>
+                </div>
+                <div class="dropdown">
+                    <% if(currentUser.request.length>0) {%>
+                        <h3 id = 'request'><%= currentUser.request.length %></h3>
+                    <%}%>
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-bell-o" style="font-size:20px ;color:#adb5bd; cursor: pointer;"></i>
+                    </a>
+                   
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="transform: translate3d(-95px, 22px, 0px)">
+                        <ul id="friends-request-list">
+                           <% for(i of currentUser.request) {%>
+                             friend request send by <a href="/users/friend/request-list"><li><%= i.name %></li></a>
+                            <%}if(currentUser.request.length==0){%>
+                            <li>no new notification to show</li>   
+                            <%}%>
+                        </ul>
+                    </div>
+                  </div>
+                
+                <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       <img id = "user-profile" src="<%= locals.user.avatar%>" alt="user-img">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="/users/profile/<%= user.id%>">Profile</a>
+                      <a class="dropdown-item" href="/users/timeline">Home</a>
+                      <a class="dropdown-item" href="/users/sign-out">Log out</a>
+                    </div>
+                  </div>
+            <%} else {%>
+            <div id = 'user-without-login'>
+                 <div id = 'login-btn'><a href="/">Log-in</a></div>
+                 <div id = 'signup-btn'><a href="/users/sign-up">Sign-up</a></div>
+            </div>
+            <% }%>
+        </div>
+    </div>
+</header>

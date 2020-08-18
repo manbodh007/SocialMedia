@@ -1,0 +1,57 @@
+ 
+
+
+
+
+<!-- main code -->
+<style>
+    #select-img{
+        cursor: pointer;
+        margin-left: 10px;
+    }
+</style>
+
+<% if(locals.user) {%>
+<!-- post form section for create a new post -->
+<div id="post-container">
+    <form action="/posts/create" method="POST" id = "create-post"  enctype="multipart/form-data">
+         <textarea id = 'post-content' name="content" type="text" col="20" rows="4" placeholder="Create new post"></textarea>
+         <input id = 'upload-post' type = 'file' name = "files" hidden>
+         <span id = 'select-img'><img src="https://img.icons8.com/color/30/000000/attach.png"/></span>
+         <span id = 'uploaded-file-responce' style="color: rgb(209, 208, 208);"></span>
+         <input type="submit" value="Post" class = 'post-btn'>
+    </form>
+
+    <ul id="posts-list-container">
+        <% for(post of posts) {%>
+           <% if(post.user) { %>
+               <%- include('_post') -%>
+             <%}%>
+        <% } %>
+    </ul>
+</div>
+
+
+
+<div id = 'chat-boxes'>
+    <!-- <% for(chatroom of chatrooms) {%>
+        <%- include('_chat_box.ejs'); %>
+    <%}%> -->
+</div>
+
+
+
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
+
+<script>
+    $('.toggle-like-button').each(function () {
+        let self = this;
+        let toggeller = new ToggleLike(self);
+    })
+</script>
+<% } %>
+
+
+    
+    

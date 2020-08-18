@@ -1,0 +1,19 @@
+
+
+<div id = 'friend-request-list-container'>
+    <% for(friend of user.request) {%>
+        <div id = "friend-<%= friend._id %>" class = 'friend'>
+            <div class = 'img'>
+                <img src = "<%= friend.avatar%>">
+            </div>
+            <div class = 'info'>
+                <div><%= friend.name %></div>
+                <div><%= friend.info %></div>
+                <div class = 'action-btn'>
+                    <a href="/users/friend/request/accept" id = 'friend-request-<%= friend._id %>'>Accept</a>
+                    <a href="#">Delete</a>
+                </div>
+            </div>
+        </div>
+    <%}%>
+</div>

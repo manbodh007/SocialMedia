@@ -1,0 +1,37 @@
+
+<% if(locals.user) {%>
+    <div class = "user-chat-box" >
+         <div class = 'chatBox-heading'>
+            <div style="font-family: sans-serif;text-transform: capitalize; font-weight:bold;"><%= chatroom.user1.name %></div>
+             <div>
+               <small class = 'minimize-window'><img src="https://img.icons8.com/ios/24/000000/restore-window.png"/></small>
+               <small class = 'hide-chat-box'><img src="https://img.icons8.com/small/24/000000/delete-message.png"/></small>
+            </div>
+          </div>
+          <ul id ="chat-messages-<%= chatroom.user1._id%>" class='chat-messages'>
+            <% for(i of chatroom.messages){%>
+              <% if(i.sender==user.email){%>
+                 <li class = 'self-messages'>
+                   <p>
+                    <span class = 'chat-user-name' ><%= i.username%> <%= i.time%></span><br>
+                    <span><%= i.message%></span>
+                   </p>
+                  </li>
+               <%}else {%>
+                 <li class = 'other-messages'>
+                   <p>
+                      <span class = 'chat-user-name' ><%= i.username%> <%= i.time%></span><br>
+                      <span><%= i.message%></span>
+                  </p>
+                </li>
+                <%}%>
+            <%}%>
+          </ul>
+        
+        <div class="chat-form">
+               <textarea name="message" placeholder="Type your message..." id = "chat-message-input-<%= chatroom.user1._id%>"></textarea>
+               <button id = 'send-message-<%= chatroom.user1._id%>'><img src="https://img.icons8.com/color/48/000000/filled-sent.png"/></button>
+        </div>
+
+    </div>
+    <%}%>

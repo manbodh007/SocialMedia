@@ -1,0 +1,38 @@
+<!-- <link rel="stylesheet" type="text/css" href="<%= assetPath('css/home.css')%>"> -->
+
+<div id = 'profile'>
+    <div id = "header">
+        <h2>Profile</h2>
+    </div>
+    <div id = 'profile-picture'>
+        <img src="<%= profile_user.avatar%>" alt="<%= user.name%>">
+    </div>
+
+    <!-- <div>
+        <div>post</div>
+        <div>followers</div>
+    </div> -->
+    
+    <div id = 'profile-info'>
+      <button><%= profile_user.name %></button>
+      <button><%= profile_user.email %></button>
+    </div>
+    <% if(locals.user.id==profile_user.id){%>
+        <div id = 'edit-profile-btn'>
+            <small>edit</small>
+        </div>
+    <form action="/users/update/<%= profile_user.id%>" enctype="multipart/form-data" method="POST">
+        <input disabled ='true' type="text" name="name" placeholder="your name" value="<%=profile_user.name%>">
+        <input disabled = 'true' type="email" name="email" placeholder="your email" value="<%= profile_user.email%>">
+        <input disabled = 'true' type="file" name="avatar" placeholder="picture profile">
+        <input disabled = 'true' type="submit" value="Save" id = "update">
+    </form>
+    <%}%>
+</div>
+
+
+
+
+<!-- ///////////////////// from home.ejs  //////////////////////// -->
+
+   

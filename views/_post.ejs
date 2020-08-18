@@ -1,0 +1,78 @@
+<li id="post-<%= post.id%>">
+  <% if(locals.user) { %>
+  <div class="post-menu-icon">
+    <img src="https://img.icons8.com/color/30/000000/menu-2.png" />
+  </div>
+
+  <div class="post-menu-option">
+    <% if(locals.user&&post.user.email == locals.user.email){ %>
+    <a class="delete-post-button" href="/posts/distroy/<%= post._id %>">
+      <small><button>Delete</button></small>
+    </a>
+    <%}else {%>
+
+    <a class="delete-post-button" href="/posts/distroy/<%= post._id %>">
+      <small>
+        <button disabled>Delete</button>
+      </small>
+    </a>
+    <br />
+
+    <a href="#" aria-disabled="true" class="delete-post-button disabled">
+      <small> <button disabled>Edit</button></small>
+    </a>
+
+    <%}%>
+  </div>
+
+  <div class="post-creater">
+    <img src="<%= post.user.avatar%>" alt="" />
+    <span><%= post.user.name %></span>
+  </div>
+
+  <div class="post-content">
+    <%= post.content %> <%if(post.image){%>
+    <div>
+      <img src="<%= post.image%>" />
+    </div>
+    <%}else if(post.video){%>
+    <div>
+      <video src="<%= post.video%>" controls></video>
+    </div>
+    <%}%>
+  </div>
+
+  <div class="post-action">
+    <div>
+      <span>
+        <a
+          class="toggle-like-button"
+          data-likes="<%= post.likes.length%>"
+          href="/likes/toggle/?id=<%= post._id %>&&type=Post"
+        >
+          <%= post.likes.length%>
+          <img src="https://img.icons8.com/fluent/26/000000/good-quality.png" />
+        </a>
+      </span>
+      <span>
+        <small style="color: blue; font-size: medium;"
+          ><%= post.comments.length%><img
+            src="https://img.icons8.com/color/32/000000/topic.png"
+        /></small>
+      </span>
+    </div>
+  </div>
+
+  <div class="post-comments">
+    <form action="/comments/create/" method="POST" id="post-<%= post._id %>-comments-form">
+      <input type="text" name="content" placeholder="comment" class="comment" />
+      <input type="hidden" name="post" value="<%= post._id%>" />
+      <input type="submit" value="post" class="comment-btn" />
+    </form>
+
+    <ul id="post-comment-<%= post._id%>">
+      <% for(comment of post.comments){%> <%-include('_comment')-%> <%}%>
+    </ul>
+  </div>
+  <% } %>
+</li>
