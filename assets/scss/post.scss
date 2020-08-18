@@ -1,0 +1,209 @@
+#post-container {
+    margin-top: 8vh;
+    width: 40%;
+    height: 82vh;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    display: inline-block;
+    margin-left: 5rem;
+    position: relative;
+    background-color: lightgrey;
+    border-radius: 5px;
+
+    #posts-list-container {
+        width: 100%;
+        height: 100%;
+        list-style: none;
+        padding: 0;
+        box-sizing: border-box;
+        margin-top:1rem;
+
+        li {
+            width: 100%;
+            height: auto;
+            padding: 20px 0px 0px 0px;
+            background-color: white;
+            box-sizing: border-box;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            position: relative;
+
+            .post-menu-icon {
+                position: absolute;
+                top: 0;
+                right: 15px;
+                transform: rotate(90deg);
+                cursor: pointer;
+            }
+            .post-menu-option {
+                position: absolute;
+                display: none;
+                top: 24px;
+                right: 15px;
+                padding: 5px;
+                border-radius: 3px;
+                cursor: pointer;
+
+                button{
+                    border: 2px solid lightgray;
+                    border-radius: 5px;
+                    width: 100%;
+                    margin-bottom: 5px;
+                }
+            }
+
+            .post-creater {
+                font-weight: bold;
+                margin: 20px 0 10px 20px;
+                img{
+                    width:50px;
+                    height:50px;
+                    border-radius: 50%;
+                }
+            }
+            .post-content {
+                width: 100%;
+                padding: 20px;
+                margin-bottom: 5px;
+                border-bottom: 1px solid lightgrey;
+
+                div>img{
+                    width:100%;
+                    height:40%;
+                }
+
+                div>video{
+                     width:100%;
+                     height:60%;
+                     background-color: black;
+                   
+                    
+                }
+            }
+            .post-action {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 5px;
+                padding: 0 3rem;
+                border-bottom: 1px solid lightgrey;
+            }
+            .post-comments {
+                width: 100%;
+                padding: 10px;
+               
+                form {
+                    padding: 5px;
+                    .comment {
+                        width: 85%;
+                        border-radius: 5px;
+                        padding: 5px;
+                        border: 1px solid lightgray;
+                    }
+                    .comment-btn {
+                        width: 13%;
+                        padding: 5px;
+                        border-radius: 5px;
+                        background-color: rgb(114, 114, 251);
+                        font-weight: 900;
+                        text-transform: capitalize;
+                        color: white;
+                        border: 1px solid lightgray;
+                    }
+                }
+
+                ul {
+                    list-style: none;
+                    padding: 30px;
+                    max-height: 30vh;
+                    overflow-y: scroll;
+                    border-radius: 5px;
+
+                    li {
+                        padding:0px 0px 20px 10px;
+                        margin-top: 20px;
+                        position: relative;
+                        box-shadow: none;
+                        margin-bottom: 10px;
+                        box-sizing: border-box;
+
+                        div {
+                            font-size: 14px;
+                            color:rgb(104, 103, 103);
+                            font-weight: bold;
+                            margin-bottom: 5px;
+                            position: absolute;
+                            top:-37%;
+                            left:-2%;
+                            img{
+                                width:25px;
+                                height:25px;
+                                border-radius: 50%;
+                            }
+                        }
+                        p{
+                            margin:0px;
+                            background-color: lightgrey;
+                            padding: 10px;
+                            border-bottom-right-radius: 10px;
+                            border-bottom-left-radius: 10px;
+                            border-top-right-radius: 10px;
+                        }
+
+                        small {
+                            position: absolute;
+                            top: 5px;
+                            right: 5px;
+                        }
+                    }
+                }
+
+                ul::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    #create-post {
+        position: sticky;
+        top:0;
+        z-index: 2;
+        border-radius: 5px;
+        background-color: white;
+        box-sizing: border-box;
+        padding: 15px;
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-bottom: 2px solid lightgray;
+            border-radius: 5px;
+        }
+        .post-btn {
+            width:53px;
+            border: 1px solid grey;
+            border-radius: 5px;
+            background-color: rgb(127, 112, 255);
+            font-weight: 900;
+            color: white;
+            float: right;
+            padding: 5px;
+        }
+    }
+}
+#post-container::-webkit-scrollbar {
+    display: none;
+}
+
+@media only screen and (max-width:600px){
+    body{
+        #post-container{
+            width: 100%;
+            height:98vh;
+            margin:0px;  
+        }
+    }
+}

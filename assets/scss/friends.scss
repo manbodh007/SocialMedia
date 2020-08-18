@@ -1,0 +1,120 @@
+#friends-list-container{
+    display: inline-block;
+    width:40%;
+    margin-left:30%;
+    height:100vh;
+    overflow-y: scroll;
+    background-color:white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 0px inset;
+    
+    h2{
+        background-color:#1bb5e2 ;
+        padding:20px;
+        margin-bottom: 30px;
+        font-family:Georgia;
+        font-weight:400;
+        box-shadow: 0px 0px 4px 0px inset;
+    }
+    .friend{
+        padding:10px 0px 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom:10px;
+
+        .user-avatar{
+            width:70px;
+            height:70px;
+            background-size: cover;
+            border-radius:50%;
+        }
+        .info{
+            width: 70%;
+            
+            .action-btn{
+                display: flex;
+                margin-top: 1rem;
+                
+                a{
+                   background-color: #043d92;
+                   padding: 5px 10 5px 10px;
+                   color: white;
+                   font-weight:900;
+                   text-transform: capitalize;
+                   border-radius: 4px;
+                   margin-right: 20px;
+                   text-decoration: none;  
+               }
+               .send{
+                   background-color: lightgray;
+               }  
+            }
+        }
+    }
+    .friend:hover{
+        background-color: rgb(214, 214, 214);
+    }
+}
+#friends-list-container::-webkit-scrollbar{
+    display: none;
+}
+
+#friend-request-list-container{
+    display: inline-block;
+    width:30%;
+    margin:3rem 0 0 3rem;
+    height:80vh;
+    overflow-y: scroll;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    .friend{
+        padding:10px;
+        border-bottom: 1px solid grey;
+        display: flex;
+        justify-content: space-between;
+
+        img{
+            width:5rem;
+            height: 100%;
+            background-size: cover;
+        }
+        .info{
+            width: 70%;
+
+            .action-btn{
+                display: inline-block;
+                margin-top: 1rem;
+                a{
+                   background-color: rgb(86, 86, 240);
+                   padding: 10px;
+                   color: white;
+                   font-weight: bold;
+                   border-radius: 4px;
+                  
+               }
+               .send{
+                   background-color: lightgray;
+               }  
+            }
+        }
+    }
+}
+#friend-request-list-container::-webkit-scrollbar{
+    display: none;
+}
+
+@media only screen and(max-width:600px){
+
+    #friends-list-container{
+        display: inline-block;
+        width:100%;
+        margin:0;
+        height:100vh;
+        overflow-y: scroll;
+        background-color:white;
+        border-radius: 5px;
+        box-shadow: 0px 0px 4px 0px inset;
+    }
+
+}
