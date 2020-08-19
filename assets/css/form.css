@@ -1,1 +1,23 @@
-.form{margin:0 35%;padding:2rem 3rem;background-color:#d3d3d3;border-radius:5px}.form img{width:30px;height:30px}@media only screen and (max-width:600px){.form{margin:0}}
+.form {
+  margin: 15% 10%;
+  padding: 2rem 3rem;
+  background-color: #f6f7f8;
+  border-radius: 5px; }
+  .form input {
+    padding: 3rem;
+    font-size: 40px;
+    margin-bottom: 2rem; }
+  .form button {
+    font-size: 40px;
+    margin-bottom: 2rem;
+    font-weight: 600; }
+  .form img {
+    width: 30px;
+    height: 30px; }
+  .form p {
+    font-size: 40px;
+    text-align: center; }
+
+@media only screen and (max-width: 600px) {
+  .form {
+    margin: 0; } }

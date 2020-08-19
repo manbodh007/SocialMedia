@@ -1,1 +1,84 @@
-#friends-list-container{display:inline-block;width:40%;margin-left:30%;height:100vh;overflow-y:scroll;background-color:#fff;border-radius:5px;box-shadow:inset 0 0 4px 0}#friends-list-container h2{background-color:#1bb5e2;padding:20px;margin-bottom:30px;font-family:Georgia;font-weight:400;box-shadow:inset 0 0 4px 0}#friends-list-container .friend{padding:10px 0 10px 20px;display:flex;justify-content:space-between;margin-bottom:10px}#friends-list-container .friend .user-avatar{width:70px;height:70px;background-size:cover;border-radius:50%}#friends-list-container .friend .info{width:70%}#friends-list-container .friend .info .action-btn{display:flex;margin-top:1rem}#friends-list-container .friend .info .action-btn a{background-color:#043d92;padding:5px 10 5px 10px;color:#fff;font-weight:900;text-transform:capitalize;border-radius:4px;margin-right:20px;text-decoration:none}#friends-list-container .friend .info .action-btn .send{background-color:#d3d3d3}#friends-list-container .friend:hover{background-color:#d6d6d6}#friends-list-container::-webkit-scrollbar{display:none}#friend-request-list-container{display:inline-block;width:30%;margin:3rem 0 0 3rem;height:80vh;overflow-y:scroll;padding:10px;background-color:#fff;border-radius:10px}#friend-request-list-container .friend{padding:10px;border-bottom:1px solid grey;display:flex;justify-content:space-between}#friend-request-list-container .friend img{width:5rem;height:100%;background-size:cover}#friend-request-list-container .friend .info{width:70%}#friend-request-list-container .friend .info .action-btn{display:inline-block;margin-top:1rem}#friend-request-list-container .friend .info .action-btn a{background-color:#5656f0;padding:10px;color:#fff;font-weight:700;border-radius:4px}#friend-request-list-container .friend .info .action-btn .send{background-color:#d3d3d3}#friend-request-list-container::-webkit-scrollbar{display:none}@media only screen and (max-width:600px){#friends-list-container{display:inline-block;width:100%;margin:0;height:100vh;overflow-y:scroll;background-color:#fff;border-radius:5px;box-shadow:inset 0 0 4px 0}}
+#friends-list-container {
+  display: inline-block;
+  width: 100%;
+  height: 90%;
+  overflow-y: scroll;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px 0px inset; }
+  #friends-list-container h2 {
+    background-color: #1bb5e2;
+    padding: 20px;
+    margin-bottom: 30px;
+    font-family: Georgia;
+    font-weight: 400;
+    box-shadow: 0px 0px 4px 0px inset; }
+  #friends-list-container .friend {
+    padding: 2rem 1rem 0rem 5rem;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem; }
+    #friends-list-container .friend .user-avatar {
+      width: 7rem;
+      height: 7rem;
+      background-size: cover;
+      border-radius: 50%; }
+    #friends-list-container .friend .info {
+      width: 70%; }
+      #friends-list-container .friend .info .action-btn {
+        display: flex;
+        margin-top: 1rem; }
+        #friends-list-container .friend .info .action-btn a {
+          width: 11rem;
+          background-color: #043d92;
+          padding: 10px;
+          color: white;
+          font-weight: 900;
+          font-size: 2rem;
+          text-transform: capitalize;
+          border-radius: 4px;
+          margin-right: 20px;
+          text-decoration: none;
+          text-align: center; }
+        #friends-list-container .friend .info .action-btn .send {
+          background-color: lightgray; }
+
+#friends-list-container::-webkit-scrollbar {
+  display: none; }
+
+#friend-request-list-container {
+  display: inline-block;
+  width: 30%;
+  margin: 3rem 0 0 3rem;
+  height: 80vh;
+  overflow-y: scroll;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px; }
+  #friend-request-list-container .friend {
+    padding: 10px;
+    border-bottom: 1px solid grey;
+    display: flex;
+    justify-content: space-between; }
+    #friend-request-list-container .friend img {
+      width: 5rem;
+      height: 100%;
+      background-size: cover; }
+    #friend-request-list-container .friend .info {
+      width: 70%; }
+      #friend-request-list-container .friend .info .action-btn {
+        display: inline-block;
+        margin-top: 1rem; }
+        #friend-request-list-container .friend .info .action-btn a {
+          background-color: #5656f0;
+          padding: 10px;
+          color: white;
+          font-weight: bold;
+          border-radius: 4px; }
+        #friend-request-list-container .friend .info .action-btn a:hover {
+          background-color: lightblue; }
+        #friend-request-list-container .friend .info .action-btn .send {
+          background-color: lightgray; }
+
+#friend-request-list-container::-webkit-scrollbar {
+  display: none; }

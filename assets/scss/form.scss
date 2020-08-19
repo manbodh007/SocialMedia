@@ -1,11 +1,26 @@
 .form{
     margin: 15% 10%;
     padding: 2rem 3rem;
-    background-color: lightgrey;
+    background-color: #f6f7f8;
     border-radius: 5px;
+
+    input{
+        padding: 3rem;
+        font-size:40px;
+        margin-bottom: 2rem;
+    }
+    button{
+        font-size:40px;
+        margin-bottom: 2rem;
+        font-weight: 600;
+    }
    img{
        width:30px;
        height:30px;
+   }
+   p{
+       font-size:40px;
+       text-align: center;
    }
 }
 @media only screen and (max-width:600px){

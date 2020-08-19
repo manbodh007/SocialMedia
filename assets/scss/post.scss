@@ -30,11 +30,15 @@
                 right: 15px;
                 transform: rotate(90deg);
                 cursor: pointer;
+                img{
+                    width: 50px;
+                    height:50px;
+                }
             }
             .post-menu-option {
                 position: absolute;
                 display: none;
-                top: 24px;
+                top: 40px;
                 right: 15px;
                 padding: 5px;
                 border-radius: 3px;
@@ -44,7 +48,8 @@
                     border: 2px solid lightgray;
                     border-radius: 5px;
                     width: 100%;
-                    margin-bottom: 5px;
+                    padding: 5px;
+                    font-size: 40px;
                 }
             }
 
@@ -52,20 +57,26 @@
                 font-weight: bold;
                 margin: 20px 0 10px 20px;
                 img{
-                    width:50px;
-                    height:50px;
+                    width:5rem;
+                    height:5rem;
                     border-radius: 50%;
+                }
+                span{
+                    font-size: 30px;
+                    margin-left: 1rem;
                 }
             }
             .post-content {
                 width: 100%;
                 padding: 20px;
-                margin-bottom: 5px;
-                border-bottom: 1px solid lightgrey;
+                font-size: 50px;
+                margin-bottom: 1rem;
+                border-bottom: 2px solid rgb(37, 36, 36);
 
                 div>img{
                     width:100%;
                     height:40%;
+                    background-size: contain;
                 }
 
                 div>video{
@@ -81,8 +92,18 @@
                 display: flex;
                 justify-content: space-between;
                 margin-bottom: 5px;
-                padding: 0 3rem;
-                border-bottom: 1px solid lightgrey;
+                padding: 1rem 3rem;
+                border-bottom: 2px solid rgb(37, 36, 36);
+
+                span{
+                    img{
+                        width:80px;
+                    }
+                    a{
+                        font-size:30px;
+                    }
+                    margin-right:1rem;
+                }
             }
             .post-comments {
                 width: 100%;
@@ -90,33 +111,32 @@
                
                 form {
                     padding: 5px;
+                    display: flex;
+                    input{
+                        padding:3rem;
+                        font-size:40px;
+                    }
                     .comment {
                         width: 85%;
                         border-radius: 5px;
                         padding: 5px;
                         border: 1px solid lightgray;
                     }
-                    .comment-btn {
-                        width: 13%;
-                        padding: 5px;
-                        border-radius: 5px;
-                        background-color: rgb(114, 114, 251);
-                        font-weight: 900;
-                        text-transform: capitalize;
-                        color: white;
-                        border: 1px solid lightgray;
+                    button {
+                        border: none;
+                        background-color: white;
                     }
                 }
 
-                ul {
+                .comments-container{
                     list-style: none;
                     padding: 30px;
                     max-height: 30vh;
                     overflow-y: scroll;
                     border-radius: 5px;
 
-                    li {
-                        padding:0px 0px 20px 10px;
+                    .comment-list {
+                        padding:0px 0px 3rem 2rem;
                         margin-top: 20px;
                         position: relative;
                         box-shadow: none;
@@ -124,23 +144,27 @@
                         box-sizing: border-box;
 
                         div {
-                            font-size: 14px;
+                            font-size: 30px;
                             color:rgb(104, 103, 103);
                             font-weight: bold;
                             margin-bottom: 5px;
                             position: absolute;
-                            top:-37%;
+                            top:-30%;
                             left:-2%;
-                            img{
-                                width:25px;
-                                height:25px;
-                                border-radius: 50%;
+                            span{
+                                img{
+                                    width:50px;
+                                    height:50px;
+                                    border-radius: 50%;
+                                }
                             }
                         }
                         p{
                             margin:0px;
+                            width:fit-content;
                             background-color: lightgrey;
-                            padding: 10px;
+                            font-size: 27px;
+                            padding: 15px;
                             border-bottom-right-radius: 10px;
                             border-bottom-left-radius: 10px;
                             border-top-right-radius: 10px;
@@ -150,6 +174,14 @@
                             position: absolute;
                             top: 5px;
                             right: 5px;
+                        }
+                        a{
+                            font-size:23px;
+                            margin-top:10px;
+                            display: flex;
+                            span{
+                                margin-right:13px;
+                            }
                         }
                     }
                 }
@@ -165,13 +197,13 @@
         position: sticky;
         top:0;
         z-index: 2;
-        border-radius: 5px;
         background-color: white;
         box-sizing: border-box;
-        padding: 15px;
+        padding: 2rem;
 
         textarea {
             width: 100%;
+            font-size: 40px;
             padding: 10px;
             margin-bottom: 10px;
             border: none;
@@ -179,14 +211,21 @@
             border-radius: 5px;
         }
         .post-btn {
-            width:53px;
-            border: 1px solid grey;
+            width:13rem;
             border-radius: 5px;
             background-color: rgb(127, 112, 255);
+            font-size:30px;
             font-weight: 900;
             color: white;
             float: right;
             padding: 5px;
+        }
+        #select-img{
+            cursor: pointer;
+            img{
+                width:5rem;
+                height:5rem;
+            }
         }
     }
 }

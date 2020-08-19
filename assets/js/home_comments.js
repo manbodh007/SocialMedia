@@ -37,7 +37,7 @@
 
     function newCommentDom(comment){
         return $(`
-           <li id = "comment-${comment._id}">
+           <div id = "comment-${comment._id}" class = "comment-list">
 
              <div>
                 <span><img src="${comment.user.avatar}" alt="user"></span>
@@ -46,14 +46,14 @@
              <p>${comment.content}</p>
             <small>
                 <a class = "delete-comment-button" href="/comments/distroy/${comment._id}" >
-                <img src="https://img.icons8.com/color/16/000000/delete-sign.png"/>
+                   <span class="glyphicon glyphicon-remove-circle"></span>
                 </a>
            </small>
-             <a href="/likes/toggle/?id =${comment._id}&&type=Comment" class ="toggle-like-button" data-likes = "0" >0 
-             <img src="https://img.icons8.com/fluent/26/000000/good-quality.png"/>
+             <a href="/likes/toggle/?id =${comment._id}&&type=Comment" class ="toggle-like-button" data-likes = "0" >
+             <span>${comment.likes.length}</span><i class="material-icons" style="font-size:30px;color:rgb(0, 140, 255)">thumb_up</i>
              </a>
 
-             </li>
+             </div>
 
              <script>
               $('.toggle-like-button').each(function () {
