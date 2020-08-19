@@ -21,8 +21,6 @@ module.exports.allUsers = async function(req,res){
         });
         
 
-       
-
         return res.render('all_users', {
             title: 'Eroschat',
             all_users: users,

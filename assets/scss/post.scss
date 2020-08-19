@@ -57,8 +57,8 @@
                 font-weight: bold;
                 margin: 20px 0 10px 20px;
                 img{
-                    width:5rem;
-                    height:5rem;
+                    width:7rem;
+                    height:7rem;
                     border-radius: 50%;
                 }
                 span{
@@ -70,8 +70,8 @@
                 width: 100%;
                 padding: 20px;
                 font-size: 50px;
-                margin-bottom: 1rem;
-                border-bottom: 2px solid rgb(37, 36, 36);
+                margin-bottom: 5rem;
+
 
                 div>img{
                     width:100%;
@@ -93,14 +93,12 @@
                 justify-content: space-between;
                 margin-bottom: 5px;
                 padding: 1rem 3rem;
-                border-bottom: 2px solid rgb(37, 36, 36);
+                border-bottom: 1px solid rgb(37, 36, 36);
+                border-top:1px solid rgb(37, 36, 36);
 
                 span{
-                    img{
-                        width:80px;
-                    }
                     a{
-                        font-size:30px;
+                        font-size:38px;
                     }
                     margin-right:1rem;
                 }
@@ -137,7 +135,7 @@
 
                     .comment-list {
                         padding:0px 0px 3rem 2rem;
-                        margin-top: 20px;
+                        margin-top: 8rem;
                         position: relative;
                         box-shadow: none;
                         margin-bottom: 10px;
@@ -149,7 +147,7 @@
                             font-weight: bold;
                             margin-bottom: 5px;
                             position: absolute;
-                            top:-30%;
+                            top:-40%;
                             left:-2%;
                             span{
                                 img{
@@ -163,7 +161,7 @@
                             margin:0px;
                             width:fit-content;
                             background-color: lightgrey;
-                            font-size: 27px;
+                            font-size: 35px;
                             padding: 15px;
                             border-bottom-right-radius: 10px;
                             border-bottom-left-radius: 10px;
@@ -176,11 +174,14 @@
                             right: 5px;
                         }
                         a{
-                            font-size:23px;
+                            font-size:30px;
                             margin-top:10px;
-                            display: flex;
-                            span{
+                            text-decoration:none;
+                            i{
                                 margin-right:13px;
+                                font-size:40px;
+                                position: relative;
+                                top:0px;
                             }
                         }
                     }

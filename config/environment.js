@@ -14,7 +14,7 @@ const accessLogStream = rfs.createStream('access.log',{
 
 const development = {
     name :'development',
-    assets_path:'./public/assets',
+    assets_path:'./assets',
     session_cookie_key:'blah',
     db:'codeial_development',
     smtp:{
@@ -23,8 +23,8 @@ const development = {
         port:587,
         secure:false,
         auth:{
-            user:'eroschatofficial@gmail.com',
-            pass:'ErosChat@1212'
+            user:'manbodhratre1@gmail.com',
+            pass:'Manbodh@123123'
         }
     },
     google_client_id:"567489393183-krdcp4bd6i1pu0eg1pc58ld5voqfil37.apps.googleusercontent.com",
@@ -65,4 +65,4 @@ const production ={
 }
 
 
-module.exports = production;
+module.exports = development;

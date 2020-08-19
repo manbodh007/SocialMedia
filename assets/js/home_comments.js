@@ -23,6 +23,8 @@
                     let addnewComment = newCommentDom(data.data.comment);
                     $(`#post-comment-${postIds[j]}`).prepend(addnewComment);
                     deleteComment($(' .delete-comment-button',addnewComment));
+
+                    $(`#post-${postIds[j]}-comments-form .comment`)[0].value = '';
                 }
             });
           });
@@ -46,21 +48,13 @@
              <p>${comment.content}</p>
             <small>
                 <a class = "delete-comment-button" href="/comments/distroy/${comment._id}" >
-                   <span class="glyphicon glyphicon-remove-circle"></span>
+                <i class="fa fa-times-circle" style="font-size:40px;color:red"></i>
                 </a>
            </small>
              <a href="/likes/toggle/?id =${comment._id}&&type=Comment" class ="toggle-like-button" data-likes = "0" >
-             <span>${comment.likes.length}</span><i class="material-icons" style="font-size:30px;color:rgb(0, 140, 255)">thumb_up</i>
+              ${comment.likes.length}<i class="fa fa-thumbs-up" style="position:relative;left:10px;color:grey"></i>
              </a>
-
              </div>
-
-             <script>
-              $('.toggle-like-button').each(function () {
-                 let self = this;
-                 let toggeller = new ToggleLike(self);
-                })
-              </script> 
         `);
     }
 

@@ -19,7 +19,10 @@ const commentSchema = new mongoose.Schema({
             type:mongoose.Schema.Types.ObjectId,
             ref:'Like'
         }
-    ]
+    ],
+    liked:{
+        type:Boolean,
+    }
 },{
     timestamps:true
 });

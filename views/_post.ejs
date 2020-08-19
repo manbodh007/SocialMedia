@@ -43,17 +43,20 @@
         <a
           class="toggle-like-button"
           data-likes="<%= post.likes.length%>"
-          href="/likes/toggle/?id=<%= post._id %>&&type=Post"
-        >
+          href="/likes/toggle/?id=<%= post._id %>&&type=Post">
           <%= post.likes.length%>
-          <img src="https://img.icons8.com/fluent/26/000000/good-quality.png" />
+          <% if(post.liked) {%>
+             <i class="material-icons" style="font-size:70px;color:rgb(0, 162, 255); position: relative; top:10px;">thumb_up</i>
+          <%}else{%>
+             <i class="material-icons" style="font-size:70px;color:grey; position: relative; top:10px;">thumb_up</i>
+            <%}%>
         </a>
       </span>
       <span>
-        <small style="color: blue; font-size:30px;"
-          ><%= post.comments.length%><img
-            src="https://img.icons8.com/color/32/000000/topic.png"
-        /></small>
+        <small style="color: blue; font-size:38px;">
+          <%= post.comments.length%>
+          <i class="material-icons" style="font-size:70px;color:rgb(0, 162, 255);position: relative; top:18px;">chat</i>
+        </small>
       </span>
     </div>
   </div>
@@ -62,7 +65,7 @@
     <form action="/comments/create/" method="POST" id="post-<%= post._id %>-comments-form">
       <input type="text" name="content" placeholder="comment" class="comment" />
       <input type="hidden" name="post" value="<%= post._id%>" />
-      <button type = 'submit'><i class='fab fa-telegram' style='font-size:52px;color:rgb(94, 84, 235)'></i></button>
+      <button type = 'submit'><i class='fab fa-telegram' style='font-size:75px;color:rgb(94, 84, 235)'></i></button>
     </form>
 
     <div id="post-comment-<%= post._id%>" class = "comments-container">

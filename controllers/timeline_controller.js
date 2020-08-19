@@ -2,6 +2,8 @@
 
 const Post = require('../models/post');
 const User = require('../models/user');
+const Likes = require('../models/like');
+const Comment = require('../models/comment');
 const { populate } = require('../models/user');
 
 module.exports.home = async function (req, res) {
@@ -16,6 +18,40 @@ module.exports.home = async function (req, res) {
                     path: 'user'
                 })
             });
+
+            // select all the liked and unliked post to show in view
+            for(let i=0;i<posts.length;i++){
+                let liked = await Likes.findOne({
+                   likeable:posts[i]._id,
+                   onModel:'Post',
+                   user:req.user.id
+                });
+
+                if(liked){
+                  posts[i].liked = true;
+                }else{
+                  posts[i].liked = false;
+                }
+                posts[i].save();
+            }
+           // mark the liked comment
+            let comments = await Comment.find({});
+
+            for(let j=0;j<comments.length;j++){
+                let likedComment = await Likes.findOne({
+                    likeable:comments[j]._id,
+                    onModel:'Comment',
+                    user:req.user.id
+                 });
+
+                 if(likedComment){
+                     comments[j].liked = true;
+                 }else{
+                     comments[j].liked = false;
+                 }
+
+                 comments[j].save();
+            }
 
         let users = await User.find({});
 

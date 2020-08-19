@@ -32,7 +32,13 @@ const postSchema = new mongoose.Schema(
     },
     video:{
         type:String,
+    },
+    
+    liked:{
+        type:Boolean,
     }
+
+
   },
   {
     timestamps: true,
