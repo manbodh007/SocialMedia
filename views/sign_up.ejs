@@ -1,46 +1,30 @@
 
 
 
-<div class="jumbotron">
-  <h1 class="display-4">ErosChat</h1>
-  <p class="lead">This is a Indian Social media Web App.</p>
-  <hr class="my-4">
-  <p>find your friend ,chat with him and enjoy the app</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Read more</a>
-</div>
-
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 <div class = 'form' id = "sign-up-form">
   <form action="/users/create" method="POST">
-    <div class="form-group">
-      <label for="exampleInputName" class="text-info">Name</label>
-      <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" name='name' required>
-    </div>
 
-    <div class="form-group">
-      <label for="exampleInputEmail1" class="text-info">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='email'
-        required>
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
+      <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" name='name' required placeholder="Enter Your Name">
+    
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='email'required placeholder="Email">
 
-    <div class="form-group">
-      <label for="exampleInputPassword1" class="text-info">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" name='password' required>
-    </div>
-
-    <div class="form-group">
-      <label for="exampleInputPassword2" class="text-info">Conform Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword2" name='conform_password' required>
-    </div>
-
-    <button type="submit" class="btn btn-primary form-control">Sign-up</button>
+      <input type="password" class="form-control" id="exampleInputPassword1" name='password' required placeholder="Password">
+  
+      <input type="password" class="form-control" id="exampleInputPassword2" name='conform_password' required placeholder="Conform">
+   
+       <button type="submit" class="btn btn-primary form-control">Create</button>
 
   </form>
 
-
-  <button class='form-control'> <a href="/users/auth/google/"><img
-        src="https://img.icons8.com/color/48/000000/google-logo.png" />Sign in With Google</a></button>
+ 
+  <button class='form-control'> 
+    <a href="/users/auth/google/">
+      <i class='fab fa-google' style="color: crimson;"></i>
+       Create With Google
+    </a>
+  </button>
        
 </div>
-<%- include('_footer'); -%>
+<!-- <%- include('_footer'); -%> -->

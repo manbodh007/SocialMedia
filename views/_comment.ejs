@@ -1,4 +1,8 @@
-<li id = "comment-<%= comment._id %>">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div id = "comment-<%= comment._id %>"  class = 'comment-list'>
           
          <div>
            <span><img src="<%= comment.user.avatar%>" alt="user"></span>
@@ -8,11 +12,11 @@
           <% if(comment.user.id == locals.user.id||post.user.id == locals.user.id) { %>
               <small>
                 <a class = "delete-comment-button" href="/comments/distroy/<%= comment.id%>">
-                  <img src="https://img.icons8.com/color/16/000000/delete-sign.png"/>
+                  <span class="glyphicon glyphicon-remove-circle"></span>
                 </a>
              </small>
           <%}%>
            <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment">
-            <%= comment.likes.length %> <img src="https://img.icons8.com/fluent/26/000000/good-quality.png"/>
+            <span><%= comment.likes.length %></span><i class="material-icons" style="font-size:30px;color:rgb(0, 140, 255)">thumb_up</i>
           </a>
-</li>
+</div>

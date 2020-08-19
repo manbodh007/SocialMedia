@@ -1,3 +1,5 @@
+
+
 <li id="post-<%= post.id%>">
   <% if(locals.user) { %>
   <div class="post-menu-icon">
@@ -10,18 +12,11 @@
       <small><button>Delete</button></small>
     </a>
     <%}else {%>
-
     <a class="delete-post-button" href="/posts/distroy/<%= post._id %>">
       <small>
         <button disabled>Delete</button>
       </small>
     </a>
-    <br />
-
-    <a href="#" aria-disabled="true" class="delete-post-button disabled">
-      <small> <button disabled>Edit</button></small>
-    </a>
-
     <%}%>
   </div>
 
@@ -55,7 +50,7 @@
         </a>
       </span>
       <span>
-        <small style="color: blue; font-size: medium;"
+        <small style="color: blue; font-size:30px;"
           ><%= post.comments.length%><img
             src="https://img.icons8.com/color/32/000000/topic.png"
         /></small>
@@ -67,12 +62,13 @@
     <form action="/comments/create/" method="POST" id="post-<%= post._id %>-comments-form">
       <input type="text" name="content" placeholder="comment" class="comment" />
       <input type="hidden" name="post" value="<%= post._id%>" />
-      <input type="submit" value="post" class="comment-btn" />
+      <button type = 'submit'><i class='fab fa-telegram' style='font-size:52px;color:rgb(94, 84, 235)'></i></button>
     </form>
 
-    <ul id="post-comment-<%= post._id%>">
+    <div id="post-comment-<%= post._id%>" class = "comments-container">
       <% for(comment of post.comments){%> <%-include('_comment')-%> <%}%>
-    </ul>
+    </div>
   </div>
   <% } %>
 </li>
+

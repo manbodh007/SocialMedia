@@ -1,18 +1,18 @@
 <header>
     <div id="navbar" class = "bg-dark">
         <div id = 'left-nav'>
-            <img src = "assets/images/eroschat_logo.png" alt = "brand-logo">
+            <img src = "/images/eroschat_logo.png" alt = "brand-logo">
         </div>
         <div id = 'right-nav'>
             <% if(locals.user){ %>
                 <div id = 'friend-list'>
                     <a href="/users/show/friend-list">
-                        <i class="material-icons" style="font-size:30px;color:#adb5bd;cursor: pointer;">supervisor_account</i>
+                        <i class="material-icons" style="font-size:80px;color:#adb5bd;cursor: pointer;">supervisor_account</i>
                     </a>
                 </div>
                 <div>
                     <a href="/users/show/messages">
-                        <i class="material-icons" style="color:#adb5bd;cursor: pointer;">textsms</i>
+                        <i class="material-icons" style="font-size:60px;color:#adb5bd;cursor: pointer;">textsms</i>
                     </a>
                 </div>
                 <div class="dropdown">
@@ -20,17 +20,17 @@
                         <h3 id = 'request'><%= currentUser.request.length %></h3>
                     <%}%>
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-bell-o" style="font-size:20px ;color:#adb5bd; cursor: pointer;"></i>
+                        <i class="fa fa-bell-o" style="font-size:50px ;color:#adb5bd; cursor: pointer;"></i>
                     </a>
                    
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="transform: translate3d(-95px, 22px, 0px)">
-                        <ul id="friends-request-list">
                            <% for(i of currentUser.request) {%>
-                             friend request send by <a href="/users/friend/request-list"><li><%= i.name %></li></a>
+                             <div class="dropdown-item" >
+                                 <a href="/users/friend/request-list">Request From <%= i.name %></a>
+                            </div>
                             <%}if(currentUser.request.length==0){%>
-                            <li>no new notification to show</li>   
+                            <div class="dropdown-item" >no notification</div>   
                             <%}%>
-                        </ul>
                     </div>
                   </div>
                 
