@@ -1,120 +1,124 @@
-#friends-list-container{
-    display: inline-block;
-    width:40%;
-    margin-left:30%;
-    height:100vh;
-    overflow-y: scroll;
-    background-color:white;
-    border-radius: 5px;
+#friends-list-container {
+  display: inline-block;
+  width: 100%;
+  height: 90%;
+  overflow-y: scroll;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px 0px inset;
+
+  h2 {
+    background-color: #1bb5e2;
+    padding: 20px;
+    margin-bottom: 30px;
+    font-family: Georgia;
+    font-weight: 400;
     box-shadow: 0px 0px 4px 0px inset;
-    
-    h2{
-        background-color:#1bb5e2 ;
-        padding:20px;
-        margin-bottom: 30px;
-        font-family:Georgia;
-        font-weight:400;
-        box-shadow: 0px 0px 4px 0px inset;
+  }
+  .friend {
+    padding: 2rem 1rem 0rem 5rem;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+
+    .user-avatar {
+      width: 7rem;
+      height: 7rem;
+      background-size: cover;
+      border-radius: 50%;
     }
-    .friend{
-        padding:10px 0px 10px 20px;
+    .info {
+      width: 70%;
+
+      .action-btn {
         display: flex;
-        justify-content: space-between;
-        margin-bottom:10px;
+        margin-top: 1rem;
 
-        .user-avatar{
-            width:70px;
-            height:70px;
-            background-size: cover;
-            border-radius:50%;
+        a {
+          width: 11rem;
+          background-color: #043d92;
+          padding: 10px;
+          color: white;
+          font-weight: 900;
+          font-size: 2rem;
+          text-transform: capitalize;
+          border-radius: 4px;
+          margin-right: 20px;
+          text-decoration: none;
+          text-align: center;
         }
-        .info{
-            width: 70%;
-            
-            .action-btn{
-                display: flex;
-                margin-top: 1rem;
-                
-                a{
-                   background-color: #043d92;
-                   padding: 5px 10 5px 10px;
-                   color: white;
-                   font-weight:900;
-                   text-transform: capitalize;
-                   border-radius: 4px;
-                   margin-right: 20px;
-                   text-decoration: none;  
-               }
-               .send{
-                   background-color: lightgray;
-               }  
-            }
+        .send {
+          background-color: lightgray;
         }
+      }
     }
-    .friend:hover{
-        background-color: rgb(214, 214, 214);
-    }
+  }
+  // .friend:hover{
+  //     background-color: rgb(214, 214, 214);
+  // }
 }
-#friends-list-container::-webkit-scrollbar{
-    display: none;
+#friends-list-container::-webkit-scrollbar {
+  display: none;
 }
 
-#friend-request-list-container{
-    display: inline-block;
-    width:30%;
-    margin:3rem 0 0 3rem;
-    height:80vh;
-    overflow-y: scroll;
+#friend-request-list-container {
+  display: inline-block;
+  width: 30%;
+  margin: 3rem 0 0 3rem;
+  height: 80vh;
+  overflow-y: scroll;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  .friend {
     padding: 10px;
-    background-color: white;
-    border-radius: 10px;
-    .friend{
-        padding:10px;
-        border-bottom: 1px solid grey;
-        display: flex;
-        justify-content: space-between;
+    border-bottom: 1px solid grey;
+    display: flex;
+    justify-content: space-between;
 
-        img{
-            width:5rem;
-            height: 100%;
-            background-size: cover;
-        }
-        .info{
-            width: 70%;
-
-            .action-btn{
-                display: inline-block;
-                margin-top: 1rem;
-                a{
-                   background-color: rgb(86, 86, 240);
-                   padding: 10px;
-                   color: white;
-                   font-weight: bold;
-                   border-radius: 4px;
-                  
-               }
-               .send{
-                   background-color: lightgray;
-               }  
-            }
-        }
+    img {
+      width: 5rem;
+      height: 100%;
+      background-size: cover;
     }
-}
-#friend-request-list-container::-webkit-scrollbar{
-    display: none;
-}
+    .info {
+      width: 70%;
 
-@media only screen and(max-width:600px){
-
-    #friends-list-container{
+      .action-btn {
         display: inline-block;
-        width:100%;
-        margin:0;
-        height:100vh;
-        overflow-y: scroll;
-        background-color:white;
-        border-radius: 5px;
-        box-shadow: 0px 0px 4px 0px inset;
-    }
+        margin-top: 1rem;
+        a {
+          background-color: rgb(86, 86, 240);
+          padding: 10px;
+          color: white;
+          font-weight: bold;
+          border-radius: 4px;
+        }
 
+        a:hover {
+          background-color: lightblue;
+        }
+
+        .send {
+          background-color: lightgray;
+        }
+      }
+    }
+  }
+}
+#friend-request-list-container::-webkit-scrollbar {
+  display: none;
+}
+
+@media only screen and(max-width:600px) {
+  // #friends-list-container{
+  //     display: inline-block;
+  //     width:100%;
+  //     margin:0;
+  //     height:100vh;
+  //     overflow-y: scroll;
+  //     background-color:white;
+  //     border-radius: 5px;
+  //     box-shadow: 0px 0px 4px 0px inset;
+  // }
 }

@@ -1,9 +1,9 @@
 #profile{
-    width:38%;
+    width:100%;
+    height:80%;
     padding-bottom:40px;
     border-radius: 5px;
     background-color: #aeaeaf;
-    margin:10% 0 0 31%;
     position: relative;
 
     #edit-profile-btn{
@@ -15,7 +15,7 @@
         font-size: 20px;
         position: absolute;
         right:5rem;
-        top:35%;
+        top:15rem;
         text-transform: capitalize;
         cursor: pointer;
     }
@@ -61,17 +61,19 @@
         }
     }
     form{
-        margin-left:20%;
         width:100%;
+        padding: 0 3rem;
+
        
         input{
-            width:60%;
+            width:100%;
             margin-bottom: 5px;
             height:3rem;
             padding: 10px;
             font-size:18px;
             border-radius: 5px;
-            border: 1px solid grey;
+            border: none;
+            border-bottom:1px solid grey;
 
         }
         #update{
@@ -87,11 +89,5 @@
 }
 
 @media only screen and (max-width:600px){
-    #profile{
-        width:100%;
-        padding-bottom:40px;
-        border-radius: 0px;
-        background-color: #aeaeaf;
-        margin:0;
-    } 
+    
 }
