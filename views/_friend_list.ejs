@@ -1,0 +1,15 @@
+<div id = "friend-<%= friend._id %>" class = 'friend'>
+    <div class = 'img'>
+        <img src = "<%= friend.avatar%>" class = 'user-avatar'>
+    </div>
+    <div class = 'info'>
+        <div>
+            <a href="/users/profile/<%= friend._id%>" style="text-decoration: none; color: black; font-family:sans-serif; font-size:2rem;"><%= friend.name %></a>
+        </div>
+        <div><%= friend.info %></div>
+        <div class = 'action-btn'>
+            <!-- <a href="/users/friend-request/" id = 'friend-request-<%= friend._id %>'>unFollow</a> -->
+            <a href="#" id ="chat-<%= friend.id%>" class = 'chat-on'>Message</a>
+        </div>
+    </div>
+</div>

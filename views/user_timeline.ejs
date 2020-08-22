@@ -20,8 +20,8 @@
     </form>
 
     <ul id="posts-list-container">
-        <% for(post of posts) {%>
-           <% if(post.user) { %>
+        <%  for(i of length) {%>
+           <% if(posts[i].user) { %>
                <%- include('_post') -%>
              <%}%>
         <% } %>
@@ -36,16 +36,14 @@
     <%}%> -->
 </div>
 
-
-
-   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
-<script>
-    $('.toggle-like-button').each(function () {
-        let self = this;
-        let toggeller = new ToggleLike(self);
-    })
-</script>
+    
+     <script>
+        $('.toggle-like-button').each(function () {
+            let self = this;
+            let toggeller = new ToggleLike(self);
+        });
+      </script>
 <% } %>
 
 

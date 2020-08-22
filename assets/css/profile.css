@@ -1,20 +1,19 @@
 #profile {
   width: 100%;
-  height: 80%;
+  height: 91vh;
   padding-bottom: 40px;
   border-radius: 5px;
   background-color: #aeaeaf;
   position: relative; }
   #profile #edit-profile-btn {
-    padding: 5px;
+    padding: 10px;
     background-color: #ebe8e8;
     border-radius: 5px;
     box-shadow: 0px 0px 2px 0px;
-    width: 40px;
-    font-size: 20px;
+    font-size: 28px;
     position: absolute;
-    right: 5rem;
-    top: 15rem;
+    right: 20%;
+    top: 20%;
     text-transform: capitalize;
     cursor: pointer; }
   #profile #header {
@@ -38,27 +37,26 @@
       border-radius: 50%; }
   #profile #profile-info {
     display: block;
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    padding: 0 4rem; }
     #profile #profile-info button {
-      width: 90%;
+      width: 100%;
       border: none;
       border-radius: 5px;
-      font-size: 20px;
-      margin-left: 5%;
+      font-size: 35px;
+      padding: 5px 15px;
       margin-bottom: 5px;
       display: flex;
       justify-content: flex-start;
-      padding: 5px;
       background-color: #dee2e6; }
   #profile form {
     width: 100%;
-    padding: 0 3rem; }
+    padding: 0 4rem; }
     #profile form input {
       width: 100%;
       margin-bottom: 5px;
-      height: 3rem;
-      padding: 10px;
-      font-size: 18px;
+      padding: 16px;
+      font-size: 35px;
       border-radius: 5px;
       border: none;
       border-bottom: 1px solid grey; }

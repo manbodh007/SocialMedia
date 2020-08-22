@@ -18,7 +18,7 @@
     </div>
     <% if(locals.user.id==profile_user.id){%>
         <div id = 'edit-profile-btn'>
-            <small>edit</small>
+            edit profile
         </div>
     <form action="/users/update/<%= profile_user.id%>" enctype="multipart/form-data" method="POST">
         <input disabled ='true' type="text" name="name" placeholder="your name" value="<%=profile_user.name%>">

@@ -24,7 +24,7 @@ const development = {
         secure:false,
         auth:{
             user:'manbodhratre1@gmail.com',
-            pass:'Manbodh@123123'
+            pass:'Manbodh@ratre123'
         }
     },
     google_client_id:"567489393183-krdcp4bd6i1pu0eg1pc58ld5voqfil37.apps.googleusercontent.com",

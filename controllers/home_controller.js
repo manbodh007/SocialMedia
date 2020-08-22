@@ -59,7 +59,8 @@ module.exports.home = function(req,res){
                   token.save();
                   user.save();
                   req.flash('success','password update successfully');
-                  return res.redirect('/users/sign-in');
+                  
+                  return res.redirect('/');
                 }else{
                     req.flash('error','conform password does not match')
                     return res.redirect('back');

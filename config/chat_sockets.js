@@ -8,17 +8,23 @@ module.exports.chatSockets = function(socketServer){
          console.log('new connection received..');
          
          socket.emit('message','welcome to eroschat');
-
-        
+         let rooms = [];
+         let i=0;
          socket.on('disconnect',function(){
            // socket broadcast
            io.emit('user_status','user left the chatroom');
+
+            for(i of rooms){
+              socket.leave(rooms[i]);
+            }
+            
            console.log('socket disconnected');
          })
 
       socket.on('join_chatRoom',function(data){
         // broadcast message to all user axcept joined user
         // socket.broadcast.emit('user_status','new user joined');
+        rooms[i++] = data.chatroom;
         
         console.log('joining request received',data);
         // join chatroom
@@ -29,7 +35,7 @@ module.exports.chatSockets = function(socketServer){
       // receiving a message send by user
       socket.on('send_message',function(data){
          console.log('message received',data);
-         io.in(data.chatroom).emit('received_message',data);
+         io.in(data.chatroom).emit('received_msg',data);
       });
 
   })

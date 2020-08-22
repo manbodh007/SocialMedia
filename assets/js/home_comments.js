@@ -25,6 +25,7 @@
                     deleteComment($(' .delete-comment-button',addnewComment));
 
                     $(`#post-${postIds[j]}-comments-form .comment`)[0].value = '';
+
                 }
             });
           });
@@ -51,7 +52,7 @@
                 <i class="fa fa-times-circle" style="font-size:40px;color:red"></i>
                 </a>
            </small>
-             <a href="/likes/toggle/?id =${comment._id}&&type=Comment" class ="toggle-like-button" data-likes = "0" >
+             <a href="/likes/toggle/?id=${comment._id}&&type=Comment" class ="toggle-like-button" data-likes = "0" >
               ${comment.likes.length}<i class="fa fa-thumbs-up" style="position:relative;left:10px;color:grey"></i>
              </a>
              </div>
@@ -73,6 +74,8 @@
               })
           })
     }
+
+    
 
 
 

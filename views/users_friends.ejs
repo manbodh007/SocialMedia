@@ -1,0 +1,16 @@
+<div id = 'friends-list-container'>
+    <h2>Friends</h2>
+    <%  for(friend of friends) {%>
+        <% if(user.email!= friend.email) {%>
+          <%- include('_friend_list'); -%>
+        <% } %>
+    <% } %>
+</div>
+
+
+<div id = 'chat-boxes'>
+</div>
+
+<script>
+  new ChatEngine('user-chat-box', '<%= locals.user.email %>','<%= locals.user.id%>','<%= locals.user.name%>');
+</script>

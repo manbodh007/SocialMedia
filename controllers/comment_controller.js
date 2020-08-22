@@ -20,13 +20,13 @@ module.exports.create = async function(req,res){
 
                comment = await comment.populate('user').execPopulate();
              //commentMailer.newComment(comment);
-              let job = queue.create('emails',comment).save(function(err){
-               if(err){
-                 console.log('error in creating queue',err);
-                 return;
-               }
-               console.log('job enqueue',job.id);
-             })
+            //   let job = queue.create('emails',comment).save(function(err){
+            //    if(err){
+            //      console.log('error in creating queue',err);
+            //      return;
+            //    }
+            //    console.log('job enqueue',job.id);
+            //  })
              
            
         if(req.xhr){

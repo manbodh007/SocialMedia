@@ -1,22 +1,45 @@
 const User = require('../models/user');
+const Friend = require('../models/friend');
 
 module.exports.sendReq = async function(req,res){
   try{
-    let user =  await User.findById(req.query.id);
+    let receiver =  await User.findById(req.query.id);
+    
+    let isFriend = await Friend.findOne({
+       user1:req.user.id,
+       user2:req.query.id
+    });
+    
+    if(!isFriend){
+      isFriend = await Friend.findOne({
+        user2:req.user.id,
+        user1:req.query.id
+      });
+    }
+
+    let message;
+
+    if(isFriend){
+      status = 'Follow'
+      message = 'you are already friend';
+    }
 
     let existReq = await User.findOne({
-      _id:req.query.id,
-      request:req.user._id
+        request:req.user._id,
     });
+
+
     let status;
 
     if(existReq){
-          user.request.pull(req.user._id);
-          user.save();
+          receiver.request.pull(req.user._id);
+          receiver.save();
           status = 'Follow'
+          message = 'request cancelled';
       }else{
-        user.request.push(req.user._id);
-        user.save();
+        receiver.request.push(req.user._id);
+        receiver.save();
+        message = 'request sent successfully';
         status = 'cancel'
       }
          
@@ -25,7 +48,7 @@ module.exports.sendReq = async function(req,res){
     if(req.xhr){
         return res.json(200,{
            status:status,
-           message:'success'
+           message:message
         })
     }
     return res.redirect('back');
@@ -62,6 +85,12 @@ module.exports.accept = async function(req,res){
   
   let status;
   if(user&&friend){
+
+      await Friend.create({
+        user1:req.user.id,
+        user2:req.params.id
+      });
+
       await user.friends.push(req.params.id);
       await user.request.pull(req.params.id);
       user.save();
@@ -82,4 +111,8 @@ module.exports.accept = async function(req,res){
    }catch(error){
     console.log('error',error);
   }
+}
+
+module.exports.reject = function(req,res){
+  
 }

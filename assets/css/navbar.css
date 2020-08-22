@@ -1,6 +1,6 @@
 #navbar {
   width: 100%;
-  height: 8rem;
+  height: 9vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,22 +12,24 @@
     height: 300px; }
   #navbar #right-nav {
     display: flex;
-    align-items: center;
-    margin-right: 30px; }
+    align-items: center; }
     #navbar #right-nav #user-profile {
-      width: 6rem;
-      height: 6rem;
+      width: 75px;
+      height: 75px;
+      background-color: transparent;
       border-radius: 50%; }
     #navbar #right-nav div {
       margin-right: 3rem; }
     #navbar #right-nav #request {
       position: absolute;
+      top: -16%;
+      left: 54%;
       color: white;
-      z-index: 2;
+      z-index: 1;
       background-color: red;
-      font-size: medium;
+      font-size: 23px;
       font-weight: bold;
-      padding: 3px;
+      padding: 6px;
       border-radius: 5px; }
     #navbar #right-nav #friends-list {
       list-style: none; }
@@ -54,6 +56,3 @@
         background-color: #6937f5; }
         #navbar #right-nav #user-without-login div:hover a {
           color: whitesmoke; }
-  #navbar .dropdown-item {
-    font-size: 40px;
-    word-wrap: break-word; }

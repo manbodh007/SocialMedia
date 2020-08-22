@@ -13,9 +13,9 @@
       console.log(ids);
       for(let j=0;j<ids.length;j++){
          let newRequest = $(`#friend-request-${ids[j]}`);
-         console.log('new request',newRequest);
+        //  console.log('new request',newRequest);
          let status = newRequest[0].innerHTML;
-         console.log(status);
+        //  console.log(status);
          newRequest.click(function(e){
              e.preventDefault();
              $.ajax({
@@ -24,8 +24,9 @@
                  success:function(data){
                      console.log(data);
                      status = data.status;
-                    newRequest[0].innerHTML = data.status;
-                    console.log(newRequest);
+                     newRequest[0].innerHTML = data.status;
+                     noty(data);
+                     console.log(newRequest);
                    
                  }
              });
@@ -59,11 +60,22 @@
                  success:function(data){
                       console.log(data);
                       newRequest[0].innerHTML = 'accepted';
+                      noty(data);
                       console.log(newRequest);
                  }
              });
          })
       }}
+
+      let noty = function(data){
+        new Noty({
+            theme:'relax',
+            type:'alert',
+            text: `${data.message}`,
+            layout: 'topRight',
+            timeout:1500
+           }).show();
+      }
      
    
    sendRequest(); 

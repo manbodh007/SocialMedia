@@ -16,7 +16,7 @@
             position: sticky;
             top:0;
             z-index: 1;
-            background-color: #e937ff;;
+            background-color: #bebdbe;;
             padding: 20px;
             border-top-right-radius: 5px;
             border-top-left-radius: 5px;
@@ -34,13 +34,13 @@
         }
         .chat-messages{
            
-            background-color: #0c1b1b;
+            background-color: white;
             border: 1px solid grey;
             position: relative;
             list-style: none;
             margin:0;
             padding: 10px 10px 0px 10px;
-            height: 83vh;
+            height: 75vh;
             overflow-y:scroll;
              
             p{

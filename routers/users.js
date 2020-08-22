@@ -26,8 +26,8 @@ router.use('/show',require('./allUser'));
 router.post("/connect-with-chat/:id", userController.connectWithChat);
 router.use('/chatbox', require('./chatboxes'));
 
-
-
+router.use('/friend',require('./friend'));
+router.use("/friend", require("./friend"));
 
 router.get("/timeline", userTimeline.home);
 
@@ -51,11 +51,19 @@ router.get(
 );
 router.get(
   "/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "/users/sign-in" }),
+  passport.authenticate("google", { failureRedirect: "/" }),
   userController.createSession
 );
 
-router.use("/friend", require("./friend"));
+router.get('/auth/facebook',
+  passport.authenticate('facebook', { scope: ['public_profile', 'email'] }));
+
+  router.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/' }),
+  userController.createSession
+  );
+
+
 
 
 

@@ -5,9 +5,7 @@ module.exports.saved = async function(req,res){
         console.log('data',req.query.id);
 
         let chatroom = await chatRooms.findById(req.query.id);
-        
         if(chatroom){
-
             chatroom.messages.push({
               message:req.query.message,
               sender:req.query.email,

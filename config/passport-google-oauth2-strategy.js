@@ -18,10 +18,10 @@ passport.use(new googleStrategy({
             return;
         }
 
-        console.log(profile);
+        // console.log(profile);
        // if user google user is also a user of codeial then return user else create a user using google profile.  
         if(user){
-          return  done(null,user);
+          return  done(null,user);  // done means callback function
         }else{
             res.locals.user = profile.displayName;
             User.create({

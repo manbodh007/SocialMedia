@@ -1,18 +1,21 @@
 
-
-<li id="post-<%= post.id%>">
+<!-- 1st -->
+<li id="post-<%= posts[i].id%>"> 
   <% if(locals.user) { %>
   <div class="post-menu-icon">
     <img src="https://img.icons8.com/color/30/000000/menu-2.png" />
   </div>
 
   <div class="post-menu-option">
-    <% if(locals.user&&post.user.email == locals.user.email){ %>
-    <a class="delete-post-button" href="/posts/distroy/<%= post._id %>">
+    <!-- 2nd -->
+    <% if(locals.user&&posts[i].user.email == locals.user.email){ %>
+      <!-- 3rd -->
+    <a class="delete-post-button" href="/posts/distroy/<%= posts[i]._id %>">
       <small><button>Delete</button></small>
     </a>
     <%}else {%>
-    <a class="delete-post-button" href="/posts/distroy/<%= post._id %>">
+      <!-- 4th -->
+    <a class="delete-post-button" href="/posts/distroy/<%= posts[i]._id %>">
       <small>
         <button disabled>Delete</button>
       </small>
@@ -21,18 +24,24 @@
   </div>
 
   <div class="post-creater">
-    <img src="<%= post.user.avatar%>" alt="" />
-    <span><%= post.user.name %></span>
+    <!-- 5th -->
+    <img src="<%= posts[i].user.avatar%>" alt="" />
+    <!-- 6th -->
+    <span><%= posts[i].user.name %></span>
   </div>
 
   <div class="post-content">
-    <%= post.content %> <%if(post.image){%>
+    <!-- 7th -->
+    <%= posts[i].content %> <%if(posts[i].image){%>
     <div>
-      <img src="<%= post.image%>" />
+      <!-- 8th -->
+      <img src="<%= posts[i].image%>" />
     </div>
-    <%}else if(post.video){%>
+    <!-- 9th -->
+    <%}else if(posts[i].video){%>
     <div>
-      <video src="<%= post.video%>" controls></video>
+      <!-- 10th -->
+      <video src="<%= posts[i].video%>" controls></video>
     </div>
     <%}%>
   </div>
@@ -42,10 +51,11 @@
       <span>
         <a
           class="toggle-like-button"
-          data-likes="<%= post.likes.length%>"
-          href="/likes/toggle/?id=<%= post._id %>&&type=Post">
-          <%= post.likes.length%>
-          <% if(post.liked) {%>
+          
+          data-likes="<%= posts[i].likes.length%>"
+          href="/likes/toggle/?id=<%= posts[i]._id %>&&type=Post">
+          <%= posts[i].likes.length%>
+          <% if(is_post_liked[i]) {%>
              <i class="material-icons" style="font-size:70px;color:rgb(0, 162, 255); position: relative; top:10px;">thumb_up</i>
           <%}else{%>
              <i class="material-icons" style="font-size:70px;color:grey; position: relative; top:10px;">thumb_up</i>
@@ -54,7 +64,7 @@
       </span>
       <span>
         <small style="color: blue; font-size:38px;">
-          <%= post.comments.length%>
+          <%= posts[i].comments.length%>
           <i class="material-icons" style="font-size:70px;color:rgb(0, 162, 255);position: relative; top:18px;">chat</i>
         </small>
       </span>
@@ -62,16 +72,17 @@
   </div>
 
   <div class="post-comments">
-    <form action="/comments/create/" method="POST" id="post-<%= post._id %>-comments-form">
+    <form action="/comments/create/" method="POST" id="post-<%= posts[i]._id %>-comments-form">
       <input type="text" name="content" placeholder="comment" class="comment" />
-      <input type="hidden" name="post" value="<%= post._id%>" />
+      <input type="hidden" name="post" value="<%= posts[i]._id%>" />
       <button type = 'submit'><i class='fab fa-telegram' style='font-size:75px;color:rgb(94, 84, 235)'></i></button>
     </form>
 
-    <div id="post-comment-<%= post._id%>" class = "comments-container">
-      <% for(comment of post.comments){%> <%-include('_comment')-%> <%}%>
+    <div id="post-comment-<%= posts[i]._id%>" class = "comments-container">
+      <% for(comment of posts[i].comments){%> <%-include('_comment')-%> <%}%>
     </div>
   </div>
   <% } %>
 </li>
+
 

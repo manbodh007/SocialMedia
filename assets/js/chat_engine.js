@@ -59,7 +59,6 @@ class ChatEngine {
           type: "POST",
           url:`/users/connect-with-chat/${ids[i]}`,
           success: function (data) {
-            // location.reload();
             console.log('Data',data);
             self.connectionHandler(data.chatroom._id,ids[i]);
             let newChatbox = self.appendchatBox(data);
@@ -177,21 +176,28 @@ class ChatEngine {
                       user_email: self.userEmail,
                       chatroom:chatroom,
                       username:self.userName,
-                      chatroom_id:chatroom
+                      chatroom_id:chatroom,
+                      isStored:false,
                     });
                   }
-                  $(`#chat-messages-${id}`)
-                       .stop()
-                       .animate({ scrollTop: $(`#chat-messages-${id}`)[0].scrollHeight }, 1000);
+
                         $(`#chat-message-input-${id}`)[0].value = ""; // doing empty input box
                 });
-            
-                socket.on("received_message", function (data) {
+
+                socket.on('received_msg',  function (data) {
                   // store messages into database;
-                  self.storeMessageIntodb(data);
+                  if(data.user_email==self.userEmail){
+                      self.storeMessageIntodb(data);
+                  }
                   // output message
                   self.outputMessage(data,id);
+                  //scroll chatbox to bottom
+                  $(`#chat-messages-${id}`)
+                  .animate({ scrollTop: $(`#chat-messages-${id}`)[0].scrollHeight },1000);
                  });
+                   // scroll chatbox to bottom;
+                 $(`#chat-messages-${id}`)
+                 .animate({ scrollTop: $(`#chat-messages-${id}`)[0].scrollHeight },1000);
                 
              });  
     
@@ -218,15 +224,18 @@ class ChatEngine {
   }
    
   storeMessageIntodb(data){
-
-    $.ajax({
-      type:'POST',
-      url:`/users/messages/save/?id=${data.chatroom_id}&&message=${data.message}&&email=${data.user_email}&&username=${data.username}&&time=${moment().format('h:mm a')}`,
-
-      success:function(data){
-         console.log('data',data);
-      }
-    })
+     
+    if(!data.isStored){
+      $.ajax({
+        type:'POST',
+        url:`/users/messages/save/?id=${data.chatroom_id}&&message=${data.message}&&email=${data.user_email}&&username=${data.username}&&time=${moment().format('h:mm a')}`,
+  
+        success:function(data){
+           console.log('data',data);
+        }
+      })
+      data.isStored = true;
+    }
 
   }
 

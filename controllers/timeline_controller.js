@@ -9,7 +9,7 @@ const { populate } = require('../models/user');
 module.exports.home = async function (req, res) {
 
     try {
-        let posts = await Post.find({})
+         let posts = await Post.find({})
             .sort('-createdAt')
             .populate('user')
             .populate({
@@ -20,6 +20,11 @@ module.exports.home = async function (req, res) {
             });
 
             // select all the liked and unliked post to show in view
+
+            let isPostliked = [];
+
+            let isCommentliked = new Array(posts.length);
+
             for(let i=0;i<posts.length;i++){
                 let liked = await Likes.findOne({
                    likeable:posts[i]._id,
@@ -28,32 +33,39 @@ module.exports.home = async function (req, res) {
                 });
 
                 if(liked){
-                  posts[i].liked = true;
+                //   posts[i].liked = true;
+                  isPostliked[i] = true;
                 }else{
-                  posts[i].liked = false;
+                //   posts[i].liked = false;
+                  isPostliked[i] = false;
                 }
-                posts[i].save();
+
+                
+                    for(let j=0;j<posts[i].comments.length;j++){
+                        isCommentliked[i] = new Array(posts[i].comments.length);
+                        let likedComment = await Likes.findOne({
+                            likeable:posts[i].comments[j]._id,
+                            onModel:'Comment',
+                            user:req.user.id
+                         });
+                         if(likedComment){
+                            //  comments[j].liked = true;
+                            isCommentliked[i][j] = true;
+                         }else{
+                            //  comments[j].liked = false;
+                            isCommentliked[i][j] = false;
+                         }
+                    }
+                
             }
-           // mark the liked comment
-            let comments = await Comment.find({});
+          
 
-            for(let j=0;j<comments.length;j++){
-                let likedComment = await Likes.findOne({
-                    likeable:comments[j]._id,
-                    onModel:'Comment',
-                    user:req.user.id
-                 });
+          let all_users = await User.find({});
+         
 
-                 if(likedComment){
-                     comments[j].liked = true;
-                 }else{
-                     comments[j].liked = false;
-                 }
+        
 
-                 comments[j].save();
-            }
 
-        let users = await User.find({});
 
         let currentUser = await User.findById(req.user.id).populate('friends')
         .populate({
@@ -80,14 +92,24 @@ module.exports.home = async function (req, res) {
         //         path:'user2'
         //     })
         // });
+         ///test
+
+         let length = [];
+         for(let i=0;i<posts.length;i++){
+             length[i] = i;
+         }
+         console.log(length.length);
 
         return res.render('user_timeline', {
             title: 'Eroschat',
             posts: posts,
-            all_users: users,
+            all_users: all_users,
             currentUser: currentUser,
             friends: currentUser.friends,
-            chatrooms:currentUser.chatrooms
+            chatrooms:currentUser.chatrooms,
+            is_post_liked:isPostliked,
+            isCommentliked:isCommentliked,
+            length:length,
         });
 
     }
