@@ -1,0 +1,41 @@
+<style>
+    .chat-icon{
+        width:80px;
+        height:80px;
+        float:right;
+    }
+</style>
+
+<% if(friend.user1._id!= user.id) {%>
+<div id = "friend-<%= friend.user1._id %>" class = 'friend'>
+    <div class = 'img'>
+        <img src = "<%= friend.user1.avatar%>" class = 'user-avatar'>
+    </div>
+    <div class = 'info'>
+        <div>
+            <a href="/users/profile/<%= friend.user1._id%>" style="text-decoration: none; color: black; font-family:sans-serif; font-size:3rem;"><%= friend.user1.name %></a>
+            <a href="#" id ="chat-<%= friend.user1._id%>" class = 'chat-on'><img src="/images/messageicon.png" class="chat-icon" alt=""></a>
+        </div>
+    </div>
+</div>
+<%}else{%>
+
+<div id = "friend-<%= friend.user2._id %>" class = 'friend'>
+    <div class = 'img'>
+        <img src = "<%= friend.user2.avatar%>" class = 'user-avatar'>
+    </div>
+    <div class = 'info'>
+        <div>
+            <a href="/users/profile/<%= friend.user2._id%>" style="text-decoration: none; color: black; font-family:sans-serif; font-size:3rem;"><%= friend.user2.name %></a>
+            <a href="#" id ="chat-<%= friend.user2._id%>" class = 'chat-on'><img src="/images/messageicon.png" class="chat-icon" alt=""></a>
+        </div>
+    </div>
+</div>
+<%}%>
+
+<div id = 'chat-boxes'>
+</div>
+
+<script>
+  new ChatEngine('user-chat-box', '<%= locals.user.email %>','<%= locals.user.id%>','<%= locals.user.name%>');
+</script>

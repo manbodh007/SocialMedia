@@ -4,7 +4,7 @@
 <header>
     <div id="navbar" class = "bg-dark">
         <div id = 'left-nav'>
-            <img src = "/images/eroschat_logo.png" alt = "brand-logo">
+            <a href="/users/timeline"><img src = "/images/eroschat_logo.png" alt = "brand-logo"></a>
         </div>
         <div id = 'right-nav'>
             <% if(locals.user){ %>
@@ -14,7 +14,7 @@
                     </a>
                 </div>
                 <div>
-                    <a href="/users/show/messages">
+                    <a href="/users/messages/with-users">
                         <i class="material-icons" style="font-size:70px;color:#adb5bd;cursor: pointer;">textsms</i>
                     </a>
                 </div>

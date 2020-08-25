@@ -116,3 +116,33 @@ module.exports.accept = async function(req,res){
 module.exports.reject = function(req,res){
   
 }
+
+module.exports.unfriend = async function(req,res){
+  let user = await User.findById(req.user.id);
+  let friend = await User.findById(req.params.id);
+  if(user&&friend){
+    console.log('unfriend');
+    user.friends.pull(friend._id);
+    user.save();
+    friend.friends.pull(user._id);
+    friend.save();
+    await Friend.deleteOne({
+      user1:req.user.id,
+      user2:req.params.id,
+    });
+
+    await Friend.deleteOne({
+      user2:req.user.id,
+      user1:req.params.id,
+    });
+
+    if(req.xhr){
+      return res.json(200,{
+        message:'unfriend one friend'
+      })
+    }
+    
+  }
+
+  return res.redirect('/');
+}

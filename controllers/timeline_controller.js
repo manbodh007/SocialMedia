@@ -83,7 +83,7 @@ module.exports.home = async function (req, res) {
                 }),
             })
         });
-        ;
+        
 
         // let userChatrooms = await User.findById(req.user.id).populate({
         //     path:'chatrooms',

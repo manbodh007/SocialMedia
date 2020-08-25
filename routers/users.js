@@ -27,7 +27,6 @@ router.post("/connect-with-chat/:id", userController.connectWithChat);
 router.use('/chatbox', require('./chatboxes'));
 
 router.use('/friend',require('./friend'));
-router.use("/friend", require("./friend"));
 
 router.get("/timeline", userTimeline.home);
 

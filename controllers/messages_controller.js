@@ -1,10 +1,12 @@
-const chatRooms = require('../models/chatrooms');
+
+const User = require('../models/user');
+const Chatrooms = require('../models/chatrooms');
 
 module.exports.saved = async function(req,res){
     try{
         console.log('data',req.query.id);
 
-        let chatroom = await chatRooms.findById(req.query.id);
+        let chatroom = await Chatrooms.findById(req.query.id);
         if(chatroom){
             chatroom.messages.push({
               message:req.query.message,
@@ -36,6 +38,48 @@ module.exports.saved = async function(req,res){
 
     }catch(err){
         console.log('error in saving messages',err);
+        return;
+    }
+}
+
+module.exports.activeMessages = async function(req,res){
+    try{
+        let user = await User.findById(req.user.id).populate({
+            path:'chatrooms',
+            populate:({
+                  path:'user1',
+            }),
+        }).populate({
+        path:'chatrooms',
+            populate:({
+                  path:'user2',
+            }),
+      });
+
+        let currentUser = await User.findById(req.user.id).populate('friends')
+        .populate({
+                path: 'request',
+                populate: ({
+                    path: 'user'
+            })
+        })
+        .populate({
+            path:'chatrooms',
+            populate:({
+                path:'user1',
+                populate:({
+                    path:'user'
+                }),
+            })
+        });
+
+      return res.render('all_chats',{
+          chatrooms:user.chatrooms,
+          currentUser: currentUser,
+      });
+ 
+    }catch(error){
+        console.log('error',error);
         return;
     }
 }

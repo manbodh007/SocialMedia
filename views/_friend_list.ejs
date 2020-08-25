@@ -1,3 +1,5 @@
+
+
 <div id = "friend-<%= friend._id %>" class = 'friend'>
     <div class = 'img'>
         <img src = "<%= friend.avatar%>" class = 'user-avatar'>
@@ -8,8 +10,11 @@
         </div>
         <div><%= friend.info %></div>
         <div class = 'action-btn'>
-            <!-- <a href="/users/friend-request/" id = 'friend-request-<%= friend._id %>'>unFollow</a> -->
+            <a href="#" id = 'unfriend-<%= friend._id %>'>Unfriend</a>
             <a href="#" id ="chat-<%= friend.id%>" class = 'chat-on'>Message</a>
         </div>
     </div>
 </div>
+
+
+   
