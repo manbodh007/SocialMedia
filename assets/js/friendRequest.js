@@ -7,10 +7,13 @@
           actions[i++] = $(this);
       });
       let ids = [];
+      //fetch the ids of all user
       for(let i=0;i<actions.length;i++){
         ids[i] = actions[i].prop('id').split('-')[1];
       }
-      console.log(ids);
+
+      unfriend(ids);
+    //   console.log(ids);
       for(let j=0;j<ids.length;j++){
          let newRequest = $(`#friend-request-${ids[j]}`);
         //  console.log('new request',newRequest);
@@ -35,7 +38,7 @@
       
    } 
 
-   let acceptRequest = function(req,res){
+   let acceptRequest = function(){
       let actions = [];
       let i=0;
       
@@ -75,6 +78,22 @@
             layout: 'topRight',
             timeout:1500
            }).show();
+      }
+
+
+
+      let unfriend = function(ids){
+          for(let i=0;i<ids.length;i++){
+              $(`#unfriend-${ids[i]}`).click(function(){
+                  $.ajax({
+                      type:'POST',
+                      url:`/users/friend/to-unfriend/${ids[i]}`,
+                      success:function(data){
+                        noty(data.message);
+                      }
+                  })
+              })
+          }
       }
      
    
