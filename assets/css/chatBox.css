@@ -33,38 +33,44 @@
       padding: 10px 10px 0px 10px;
       height: 65vh;
       overflow-y: scroll; }
-      #chat-boxes .user-chat-box .chat-messages p {
-        padding: 10px; }
-        #chat-boxes .user-chat-box .chat-messages p .text {
-          word-wrap: break-word;
-          margin-right: 2rem; }
-        #chat-boxes .user-chat-box .chat-messages p .chat-user-name {
-          text-transform: capitalize;
-          color: #707070;
-          float: right; }
       #chat-boxes .user-chat-box .chat-messages .other-messages {
-        width: fit-content;
-        position: relative;
-        left: 0;
-        font-size: 40px;
-        background-color: #afffec;
-        font-family: serif;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-        border-bottom-left-radius: 10px; }
+        margin-bottom: 2rem; }
+        #chat-boxes .user-chat-box .chat-messages .other-messages p {
+          width: fit-content;
+          max-width: 90%;
+          font-size: 40px;
+          background-color: #afffec;
+          font-family: monospace;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+          border-bottom-left-radius: 10px;
+          word-wrap: break-word;
+          padding: 10px; }
+          #chat-boxes .user-chat-box .chat-messages .other-messages p .text {
+            margin-right: 2rem; }
+          #chat-boxes .user-chat-box .chat-messages .other-messages p .message-time {
+            color: #707070;
+            font-size: 30px; }
       #chat-boxes .user-chat-box .chat-messages .self-messages {
         display: flex;
         flex-direction: row-reverse;
-        font-size: 40px;
-        font-family: serif; }
+        margin-bottom: 2rem; }
         #chat-boxes .user-chat-box .chat-messages .self-messages p {
+          font-family: monospace;
           width: fit-content;
           max-width: 90%;
+          font-size: 40px;
           background-color: #e2e2e2;
           border-top-left-radius: 10px;
           border-bottom-right-radius: 10px;
           border-bottom-left-radius: 10px;
-          word-wrap: break-word; }
+          word-wrap: break-word;
+          padding: 10px; }
+          #chat-boxes .user-chat-box .chat-messages .self-messages p .text {
+            margin-right: 2rem; }
+          #chat-boxes .user-chat-box .chat-messages .self-messages p .message-time {
+            color: #707070;
+            font-size: 30px; }
     #chat-boxes .user-chat-box .chat-messages::-webkit-scrollbar {
       display: none; }
     #chat-boxes .user-chat-box .chat-form {

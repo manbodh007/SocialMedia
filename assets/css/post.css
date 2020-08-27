@@ -98,6 +98,7 @@
             border: none;
             background-color: white; }
         #post-container #posts-list-container li .post-comments .comments-container {
+          display: none;
           list-style: none;
           padding: 30px;
           max-height: 30vh;

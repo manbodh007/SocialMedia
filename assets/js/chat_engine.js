@@ -128,9 +128,10 @@ class ChatEngine {
         return $(`
         <li class = '${className}'>
         <p>
-         <span class = 'text'>${data.message}</span>
-         <span class = 'chat-user-name' >${data.time}</span>
+          <span class = 'text'>${data.message}</span>
+          <span class = 'message-time' >${data.time}</span>
         </p>
+        
        </li>
         `)
   }
@@ -215,7 +216,7 @@ class ChatEngine {
 
       newMessage.append(
         $("<p>", {
-          html: `<span class = 'text'>${data.message}</span> <span class = 'chat-user-name' >${moment().format('h:mm a')}`,
+          html: `<span class = 'text'>${data.message}</span> <span class = 'message-time' >${moment().format('h:mm a')}`,
         })
       );
 
