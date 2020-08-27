@@ -17,7 +17,7 @@
       <!-- 4th -->
     <a class="delete-post-button" href="/posts/distroy/<%= posts[i]._id %>">
       <small>
-        <button disabled>Delete</button>
+        <button disabled='true'>Delete</button>
       </small>
     </a>
     <%}%>
@@ -50,8 +50,7 @@
     <div>
       <span>
         <a
-          class="toggle-like-button"
-          
+          class="toggle-like-button"  
           data-likes="<%= posts[i].likes.length%>"
           href="/likes/toggle/?id=<%= posts[i]._id %>&&type=Post">
           <%= posts[i].likes.length%>
@@ -65,7 +64,7 @@
       <span>
         <small style="color: blue; font-size:38px;">
           <%= posts[i].comments.length%>
-          <i class="material-icons" style="font-size:70px;color:rgb(0, 162, 255);position: relative; top:18px;">chat</i>
+          <i  class="material-icons toggle-comments" style="font-size:70px;color:rgb(0, 162, 255);position: relative; top:18px;">chat</i>
         </small>
       </span>
     </div>
@@ -84,5 +83,7 @@
   </div>
   <% } %>
 </li>
+
+
 
 

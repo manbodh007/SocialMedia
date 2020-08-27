@@ -1,6 +1,7 @@
 
 const Users = require('../models/user');
 const Chatrooms = require('../models/chatrooms');
+const path = require('path');
 
 module.exports.profile = async function(req,res){
 
@@ -58,10 +59,9 @@ module.exports.update = async function(req,res){
 
 module.exports.signIn = function(req,res){
     if(req.isAuthenticated()){
-        req.flash('error','cannot excess sign-in page');
      return res.redirect('/users/timeline');
     }
-    return res.redirect('back');
+    return res.send('/','<h1>hello</h1>')
 }
 module.exports.signUp = function(req,res){
     

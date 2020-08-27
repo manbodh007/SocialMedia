@@ -44,6 +44,29 @@
             let toggeller = new ToggleLike(self);
         });
       </script>
+
+<script>
+    function commentToggler(){
+      let toggler = $(".toggle-comments");
+      let commentBox = $(".comments-container");
+      for (let i = 0; i < toggler.length; i++) {
+        let flag = false;
+        $(toggler[i]).click(function () {
+          
+          let toggler = commentBox[i].style.display;
+          if (!flag) {
+            commentBox[i].style.display = "block";
+            flag = true;
+          } else {
+            commentBox[i].style.display = "none";
+            flag = false;
+          }
+        });
+      }
+    }
+    commentToggler();
+
+  </script>
 <% } %>
 
 
