@@ -1,31 +1,39 @@
 .form{
-    margin: 15% 10%;
-    padding: 2rem 3rem;
-    background-color: #f6f7f8;
+    margin:10% 0% 0% 38%;
     border-radius: 5px;
-
+    width:400px;
+    float:center;
+    background-color: white;
+    padding: 20px;
+    h2{
+        text-align: center;
+        font-weight: bold;
+        color:#545b62;
+    }
     input{
-        padding: 3rem;
-        font-size:40px;
+        padding: 1rem;
+        // font-size:40px;
         margin-bottom: 2rem;
     }
     button{
-        font-size:40px;
-        margin-bottom: 2rem;
+        // font-size:40px;
+        // margin-bottom:1rem;
         font-weight: 600;
     }
    img{
-       width:60px;
-       height:60px;
+       width:30px;
+       height:25px;
    }
    p{
-       font-size:40px;
+    //    font-size:40px;
        text-align: center;
    }
 }
-@media only screen and (max-width:600px){
+@media only screen and (max-width:700px){
     .form{
-        margin:0;
+
+        width:80%;
+        margin:20% 10%;
     }
 }
 

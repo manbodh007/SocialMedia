@@ -1,41 +1,43 @@
 #friends-list-container {
   display: inline-block;
-  width: 100%;
+  width: 50%;
   height: 90%;
+  margin-left: 25%;
   overflow-y: scroll;
   background-color: white;
   border-radius: 5px;
-  box-shadow: 0px 0px 4px 0px inset; }
+  box-shadow: 0px 0px 4px 0px; }
   #friends-list-container h2 {
-    background-color: #efc7ec;
-    padding: 20px 20px 20px 135px;
+    background-color: #fbac00;
+    padding: 10px;
+    text-align: center;
     margin-bottom: 30px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: bolder;
-    font-size: 60px;
-    box-shadow: 0px 0px 15px 0px lightgray inset; }
+    font-family: monospace;
+    font-weight: bolder; }
   #friends-list-container .friend {
-    padding: 2rem 1rem 0rem 5rem;
+    padding: 1rem;
     display: flex;
     justify-content: space-around;
     margin-bottom: 1rem; }
     #friends-list-container .friend .user-avatar {
-      width: 7rem;
-      height: 7rem;
+      width: 4rem;
+      height: 4rem;
       background-size: cover;
       border-radius: 50%; }
     #friends-list-container .friend .info {
       width: 70%; }
+      #friends-list-container .friend .info .name {
+        text-decoration: none;
+        color: black;
+        font-family: monospace;
+        font-size: 24px; }
       #friends-list-container .friend .info .action-btn {
-        display: flex;
-        margin-top: 1rem; }
+        display: flex; }
         #friends-list-container .friend .info .action-btn a {
-          width: 11rem;
           background-color: #043d92;
-          padding: 10px;
+          padding: 5px 10px;
           color: white;
           font-weight: 900;
-          font-size: 2rem;
           text-transform: capitalize;
           border-radius: 4px;
           margin-right: 20px;
@@ -61,19 +63,23 @@
     display: flex;
     justify-content: space-between; }
     #friend-request-list-container .friend img {
-      width: 10rem;
-      height: 10rem;
+      width: 4rem;
+      height: 4rem;
       border-radius: 50%;
       background-size: cover; }
     #friend-request-list-container .friend .info {
       width: 70%; }
+      #friend-request-list-container .friend .info .name {
+        text-decoration: none;
+        color: black;
+        font-family: monospace;
+        font-size: 24px; }
       #friend-request-list-container .friend .info .action-btn {
         display: inline-block;
         margin-top: 1rem; }
         #friend-request-list-container .friend .info .action-btn a {
           background-color: #5656f0;
           padding: 10px;
-          font-size: 40px;
           color: white;
           font-weight: bold;
           border-radius: 4px;
@@ -87,3 +93,13 @@
 #friends-list-container .friend .info .action-btn a:hover {
   background-color: #a3ccda;
   color: black; }
+
+@media only screen and (max-width: 800px) {
+  #friends-list-container {
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: white;
+    border-radius: 5px; } }

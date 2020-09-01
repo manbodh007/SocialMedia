@@ -25,6 +25,7 @@ module.exports.sendReq = async function(req,res){
     }
 
     let existReq = await User.findOne({
+        _id:req.query.id,
         request:req.user._id,
     });
 

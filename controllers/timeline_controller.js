@@ -22,6 +22,7 @@ module.exports.home = async function (req, res) {
             // select all the liked and unliked post to show in view
 
             let isPostliked = [];
+            let emojiUrl = [];
 
             let isCommentliked = new Array(posts.length);
 
@@ -35,6 +36,7 @@ module.exports.home = async function (req, res) {
                 if(liked){
                 //   posts[i].liked = true;
                   isPostliked[i] = true;
+                  emojiUrl[i] = liked.name + '.png';
                 }else{
                 //   posts[i].liked = false;
                   isPostliked[i] = false;
@@ -110,6 +112,7 @@ module.exports.home = async function (req, res) {
             is_post_liked:isPostliked,
             isCommentliked:isCommentliked,
             length:length,
+            emojiUrl:emojiUrl,
         });
 
     }

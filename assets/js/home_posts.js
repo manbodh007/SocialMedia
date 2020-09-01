@@ -1,3 +1,4 @@
+
 {
   let createPost = function () {
     let newPostForm = $("#create-post1"); // id should be create-post for ajax request
@@ -49,7 +50,7 @@
                             
                             <span>
                                <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&&type=Post">
-                               ${post.likes.length} <i class="material-icons" style="font-size:70px;color:rgb(0, 162, 255); position: relative; top:10px;">thumb_up</i>
+                               ${post.likes.length} <img style = 'width:30px; position: relative; top:-5px;' src="/images/unlike.png" alt="">
                                </a>
                             <span>
                             <span>
@@ -133,9 +134,47 @@
     });
   };
 
+
+  let showEmojis = function(){
+     let likeBtn = $('.post-action .toggle-like-button');
+     let emojis = $('.emoji-tooltip');
+     for(let i=0;i<likeBtn.length;i++){
+       $(likeBtn[i]).mouseover(()=>{
+          $(emojis[i]).css('display','flex');
+       });
+       $(emojis[i]).mouseover(()=>{
+         $(emojis[i]).css('display','flex');
+       })
+       $(likeBtn[i]).mouseleave(()=>{
+        $(emojis[i]).css('display','none');
+
+        $(emojis[i]).mouseleave(()=>{
+          $(emojis[i]).css('display','none');
+        })
+     });
+     }
+  }
+
+  let handleEmoji = function(){
+    let emojis = $('.post-action .emoji');
+    let likeBtn = $('.post-action .toggle-like-button');
+    for(let i=0;i<emojis.length;i++){  
+         $(emojis[i]).click(()=>{
+          let name = emojis[i].firstElementChild.alt;
+          console.log(name);
+          localStorage.setItem('emoji',name);
+          likeBtn[parseInt(i/5)].click();
+         })
+       }
+  }
+
+  
+
   handlePostMenuIcon(); // here i am handling the event listener
   createPost();
   convertToAjax();
   handlePostImage();
+  showEmojis();
+  handleEmoji();
   // you need that dlete edit with evershow me the ejs pleasew me the lo
 }

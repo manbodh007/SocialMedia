@@ -2,6 +2,7 @@
 const Users = require('../models/user');
 const Chatrooms = require('../models/chatrooms');
 const path = require('path');
+const email_verification = require('../mailers/email_confirmation');
 
 module.exports.profile = async function(req,res){
 
@@ -61,12 +62,11 @@ module.exports.signIn = function(req,res){
     if(req.isAuthenticated()){
      return res.redirect('/users/timeline');
     }
-    return res.send('/','<h1>hello</h1>')
+    return res.redirect('back');
 }
 module.exports.signUp = function(req,res){
     
     if(req.isAuthenticated()){
-      req.flash('error','cannot excess sign-up page');
       return res.redirect('/users/timeline');
     }
     return res.render('sign_up',{
@@ -80,9 +80,10 @@ module.exports.create = async function(req,res){
         return res.redirect('back');
 
     let user = await Users.findOne({email:req.body.email});
-
         if(!user){
             let userdata = await Users.create(req.body);
+            req.flash('alert','Email sent to your account please confirm your email');
+            email_verification.link(userdata);
             return res.redirect('/');
         }else{
             return res.redirect('/users/sign-up');

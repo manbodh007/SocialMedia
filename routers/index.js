@@ -16,7 +16,9 @@ router.get('/submit-password',function(req,res){
     return res.render('submit_password',{
         token:req.query.token
     })
-})
+});
+
+router.get('/email-confirmation/:id',homeController.email_verify);
 
 router.use('/likes',require('./likes'));
 

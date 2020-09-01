@@ -74,6 +74,18 @@ module.exports.home = function(req,res){
              console.log('error in reset password',error);
         }
     }
+
+    module.exports.email_verify = async function(req,res){
+        let user = await User.findById(req.params.id);
+        if(user){
+            user.email_verified = true;
+            user.save();
+            req.flash('success','email verified!!');
+        }else{
+            req.flash('error','email is not verified');
+        }
+        return res.redirect('/');
+    }
      
    
 

@@ -49,11 +49,11 @@
              <p>${comment.content}</p>
             <small>
                 <a class = "delete-comment-button" href="/comments/distroy/${comment._id}" >
-                <i class="fa fa-times-circle" style="font-size:40px;color:red"></i>
+                <i class="fa fa-times-circle" style="font-size:20px;color:red"></i>
                 </a>
            </small>
-             <a href="/likes/toggle/?id=${comment._id}&&type=Comment" class ="toggle-like-button" data-likes = "0" >
-              ${comment.likes.length}<i class="fa fa-thumbs-up" style="position:relative;left:10px;color:grey"></i>
+             <a  class ="toggle-like-button" href="/likes/toggle/?id=${comment._id}&&type=Comment" data-likes = "0" >
+              ${comment.likes.length}<i class="fa fa-thumbs-up" style="position:relative;left:10px;color:grey; font-size:18px;"></i>
              </a>
              </div>
         `);

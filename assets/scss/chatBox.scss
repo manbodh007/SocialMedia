@@ -1,34 +1,34 @@
 #chat-boxes{
-         width:100%;
          display: flex;
          flex-direction: row-reverse;
          position: absolute;
-         top:9%;
+         width: 100%;
+         right:2%;
+         top:45vh;
     .user-chat-box{
-        position: relative;
-        width:100%;
+        // position: relative;
         box-sizing: border-box;
         border-radius: 5px;
+        width:350px;
+        height:44vh;
        
-        
-    
         .chatBox-heading{
             position: sticky;
             top:0;
             z-index: 1;
-            background-color: white;
+            background-color: rgb(253, 218, 21);
             padding: 20px;
             border-top-right-radius: 5px;
             border-top-left-radius: 5px;
             display: flex;
             justify-content: space-between;
             div{
-                font-size: 40px;
+                // font-size: 40px;
                 small{
                     cursor: pointer;
-                    img{
-                        width:65px;
-                    }
+                    // img{
+                    //     width:65px;
+                    // }
                 }
             }
         }
@@ -39,35 +39,19 @@
             list-style: none;
             margin:0;
             padding: 10px 10px 0px 10px;
-            height: 65vh;
+            height: 40vh;
             overflow-y:scroll;
              
-            // p{
-            //     padding:10px;
-            //     position: relative;
-               
-            //     .text{
-            //         word-wrap: break-word;
-            //         margin-right: 2rem;
-            //     }
-    
-            //     .message-time{
-            //         color: rgb(112, 112, 112);
-            //         font-size: 30px;
-            //         position:relative;
-            //         right:0;
-            //         bottom:-90%;
-            //     }
-            // }
+           
     
             .other-messages{
                 // position: relative;
                 // left:0;
-                margin-bottom: 2rem;
+               
                 p{
                   width:fit-content;
                   max-width:90%;
-                  font-size: 40px;
+                //   font-size: 40px;
                   background-color: #afffec;
                   font-family:monospace;
                   border-top-right-radius:10px;
@@ -81,19 +65,18 @@
     
                   .message-time{
                     color: rgb(112, 112, 112);
-                    font-size: 30px;
+                    // font-size: 30px;
                    }
                 }
              }
              .self-messages{
                  display: flex;
                  flex-direction: row-reverse;
-                 margin-bottom: 2rem;
                  p{
                      font-family:monospace;
                      width:fit-content;
                      max-width:90%;
-                     font-size: 40px;
+                    //  font-size: 40px;
                      background-color: rgb(226, 226, 226);
                      border-top-left-radius: 10px;
                      border-bottom-right-radius: 10px;
@@ -106,7 +89,7 @@
         
                     .message-time{
                         color: rgb(112, 112, 112);
-                        font-size: 30px;
+                        // font-size: 30px;
                     }
                  }
         
@@ -118,25 +101,19 @@
         .chat-form{
             display: flex;
             height:auto;
-            margin-bottom:20vh;
-            border-radius: 20px;
-            margin-left:2rem;
-            margin-top:20px;
             
             textarea{
                 padding-left: 10px;
-                width:90%;
-                border:2px solid lightgrey;
-                border-radius: 25px;
-                font-size: 40px;
+                width:100%;
+                border-radius: 10px;
+                border:2px solid lightgray;
+                // font-size: 40px;
             }
             button{
                 background-color:rgb(255, 254, 254);
                 border:none;
                 img{
                     margin-top:-3px;
-                    width:7rem;
-
                 }
             }
         }
@@ -146,22 +123,32 @@
 
 @media only screen and (max-width:600px){
     #chat-boxes{
-        position: relative;
+        width:100%;
+        height: fit-content;
+        position: absolute;
         bottom: 12%;
+        right:0%;
+        top:8%;
         .user-chat-box{
-            height:98vh;
             position: absolute;
             width:100%;
+            background-color: white;
             right:0;
-            bottom: -27px;
             box-sizing: border-box;
             border-radius: 0;
+            height:91vh;
+            background-color: white;
 
             .chatBox-heading{
                 border-top-right-radius: 0px;
                 border-top-left-radius: 0px;
+                background-color: white;
+            }
+            .chat-messages{
+                height:60vh;
             }
         }
+
     }
 }
 

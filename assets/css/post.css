@@ -1,10 +1,12 @@
 #post-container {
-  width: 100%;
+  width: 60%;
+  margin-left: 20%;
   height: 100%;
   overflow-y: scroll;
   box-sizing: border-box;
   display: inline-block;
-  background-color: lightblue; }
+  background-color: #dce6e9;
+  padding: 0 2px; }
   #post-container #posts-list-container {
     width: 100%;
     height: 90%;
@@ -20,44 +22,39 @@
       box-sizing: border-box;
       margin-bottom: 1rem;
       border-radius: 5px;
-      position: relative; }
+      position: relative;
+      box-shadow: 0px 0px 4px -1px; }
       #post-container #posts-list-container li .post-menu-icon {
         position: absolute;
         top: 0;
         right: 15px;
         transform: rotate(90deg);
         cursor: pointer; }
-        #post-container #posts-list-container li .post-menu-icon img {
-          width: 50px;
-          height: 50px; }
       #post-container #posts-list-container li .post-menu-option {
         position: absolute;
         display: none;
-        top: 40px;
+        top: 20px;
         right: 15px;
         padding: 5px;
         border-radius: 3px;
         cursor: pointer; }
         #post-container #posts-list-container li .post-menu-option button {
-          border: 2px solid lightgray;
+          border: 2px solid #585757;
           border-radius: 5px;
-          width: 100%;
-          padding: 5px;
-          font-size: 40px; }
+          font-size: 15px;
+          padding: 5px; }
       #post-container #posts-list-container li .post-creater {
         font-weight: bold;
-        margin: 20px 0 10px 20px; }
+        margin-left: 15px; }
         #post-container #posts-list-container li .post-creater img {
-          width: 7rem;
-          height: 7rem;
+          width: 4rem;
+          height: 4rem;
           border-radius: 50%; }
         #post-container #posts-list-container li .post-creater span {
-          font-size: 30px;
           margin-left: 1rem; }
       #post-container #posts-list-container li .post-content {
         width: 100%;
         padding: 20px;
-        font-size: 50px;
         margin-bottom: 5rem; }
         #post-container #posts-list-container li .post-content div > img {
           width: 100%;
@@ -72,13 +69,15 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 5px;
-        padding: 1rem 3rem;
-        border-bottom: 1px solid #252424;
-        border-top: 1px solid #252424; }
+        padding: 0rem 1rem;
+        border-bottom: 1px solid #b4b4b4;
+        border-top: 1px solid #b9b9b9;
+        position: relative; }
         #post-container #posts-list-container li .post-action span {
           margin-right: 1rem; }
           #post-container #posts-list-container li .post-action span a {
-            font-size: 38px;
+            font-size: 18px;
+            color: blue;
             text-decoration: none; }
       #post-container #posts-list-container li .post-comments {
         width: 100%;
@@ -86,49 +85,44 @@
         #post-container #posts-list-container li .post-comments form {
           padding: 5px;
           display: flex; }
-          #post-container #posts-list-container li .post-comments form input {
-            padding: 3rem;
-            font-size: 40px; }
           #post-container #posts-list-container li .post-comments form .comment {
             width: 85%;
             border-radius: 5px;
             padding: 5px;
-            border: 1px solid lightgray; }
+            border: 1px solid #7e7c7c;
+            font-size: 16px; }
           #post-container #posts-list-container li .post-comments form button {
             border: none;
             background-color: white; }
         #post-container #posts-list-container li .post-comments .comments-container {
           display: none;
           list-style: none;
-          padding: 30px;
           max-height: 30vh;
           overflow-y: scroll;
           border-radius: 5px; }
           #post-container #posts-list-container li .post-comments .comments-container .comment-list {
-            padding: 0px 0px 3rem 2rem;
-            margin-top: 8rem;
+            padding: 5px 0px 0px 4rem;
+            margin-top: 3rem;
             position: relative;
             box-shadow: none;
             margin-bottom: 10px;
             box-sizing: border-box; }
             #post-container #posts-list-container li .post-comments .comments-container .comment-list div {
-              font-size: 30px;
               color: #686767;
               font-weight: bold;
               margin-bottom: 5px;
               position: absolute;
               top: -40%;
-              left: -2%; }
+              left: 1%; }
               #post-container #posts-list-container li .post-comments .comments-container .comment-list div span img {
-                width: 50px;
-                height: 50px;
+                width: 30px;
+                height: 30px;
                 border-radius: 50%; }
             #post-container #posts-list-container li .post-comments .comments-container .comment-list p {
               margin: 0px;
               width: fit-content;
               background-color: lightgrey;
-              font-size: 35px;
-              padding: 15px;
+              padding: 8px;
               border-bottom-right-radius: 10px;
               border-bottom-left-radius: 10px;
               border-top-right-radius: 10px; }
@@ -137,12 +131,10 @@
               top: 5px;
               right: 5px; }
             #post-container #posts-list-container li .post-comments .comments-container .comment-list a {
-              font-size: 30px;
               margin-top: 10px;
               text-decoration: none; }
               #post-container #posts-list-container li .post-comments .comments-container .comment-list a i {
                 margin-right: 13px;
-                font-size: 40px;
                 position: relative;
                 top: 0px; }
         #post-container #posts-list-container li .post-comments ul::-webkit-scrollbar {
@@ -153,35 +145,31 @@
     z-index: 2;
     background-color: white;
     box-sizing: border-box;
-    padding: 2rem; }
+    padding: 2rem;
+    box-shadow: 0px 0px 3px 0px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px; }
     #post-container #create-post textarea {
       width: 100%;
-      font-size: 40px;
       padding: 10px;
       margin-bottom: 10px;
-      border: none;
-      border-bottom: 2px solid lightgray;
-      border-radius: 5px; }
+      border: 2px solid #111111;
+      border-radius: 10px; }
     #post-container #create-post .post-btn {
-      width: 13rem;
       border-radius: 5px;
       background-color: #7f70ff;
-      font-size: 30px;
       font-weight: 900;
       color: white;
       float: right;
-      padding: 5px; }
+      padding: 5px 10px; }
     #post-container #create-post #select-img {
       cursor: pointer; }
-      #post-container #create-post #select-img img {
-        width: 5rem;
-        height: 5rem; }
 
 #post-container::-webkit-scrollbar {
   display: none; }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   body #post-container {
     width: 100%;
-    height: 98vh;
-    margin: 0px; } }
+    margin: 0px;
+    padding: 0; } }

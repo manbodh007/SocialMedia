@@ -34,7 +34,7 @@ router.use('/messages',require('./messages'));
 
 router.post(
   "/create-session",
-  passport.authenticate("local", { failureRedirect: "/users/sign-in" }),
+  passport.authenticate("local", { failureRedirect: "/" }),
   userController.createSession
 );
 

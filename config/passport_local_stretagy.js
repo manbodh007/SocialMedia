@@ -1,6 +1,7 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/user');
+const mail = require('../mailers/email_confirmation');
 //authentication using passport
 passport.use(new LocalStrategy({
     usernameField:'email',
@@ -16,6 +17,10 @@ passport.use(new LocalStrategy({
        }
        if(!user||user.password!=password){
            req.flash('error',"invalid username or password!");
+           return done(null,false);
+       }else if(!user.email_verified){
+           req.flash('error','email sent to your account please verify!!');
+           mail.link(user);
            return done(null,false);
        }
        return done(null,user);

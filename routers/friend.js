@@ -10,5 +10,4 @@ router.get('/list',friendListController.friends);
 
 router.post('/to-unfriend/:id',friendController.unfriend);
 
-
 module.exports = router;

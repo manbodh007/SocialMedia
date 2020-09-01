@@ -22,7 +22,6 @@ module.exports.toggleLikes =  async function(req,res){
               user:req.user._id
           })
 
-
           // if post or comment is already liked
           if(existingLike){
               likeable.likes.pull(existingLike._id);
@@ -32,10 +31,12 @@ module.exports.toggleLikes =  async function(req,res){
 
           }else{
               // else make a new like
+             
               let newLike = await Like.create({
                   user:req.user._id,
                   likeable:req.query.id,
                   onModel:req.query.type,
+                  name:req.query.name,
               })
               likeable.likes.push(newLike._id);
               likeable.save();
