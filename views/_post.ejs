@@ -47,6 +47,13 @@
   </div>
 
   <div class="post-action">
+    <div class='emoji-tooltip'>
+       <span class = 'emoji'><img src="/images/love.png" alt="love"></span>
+       <span class = 'emoji'><img src="/images/haha.png" alt="haha"></span>
+       <span class = 'emoji'><img src="/images/waw.png" alt="waw"></span>
+       <span class = 'emoji'><img src="/images/angry.png" alt="angry"></span>
+       <span class = 'emoji'><img src="/images/sad.png" alt="sad"></span>
+    </div>
     <div>
       <span>
         <a
@@ -55,16 +62,18 @@
           href="/likes/toggle/?id=<%= posts[i]._id %>&&type=Post">
           <%= posts[i].likes.length%>
           <% if(is_post_liked[i]) {%>
-             <i class="material-icons" style="font-size:70px;color:rgb(0, 162, 255); position: relative; top:10px;">thumb_up</i>
+             <img style = 'width:30px; position: relative; top:-5px;' src="/images/<%= emojiUrl[i]%>" alt="">
+             <!-- <i class="material-icons" style="font-size:35px;color:rgb(0, 162, 255); position: relative; top:5px;">thumb_up</i> -->
           <%}else{%>
-             <i class="material-icons" style="font-size:70px;color:grey; position: relative; top:10px;">thumb_up</i>
+             <!-- <i class="material-icons" style="font-size:35px;color:grey; position: relative; top:5px;">thumb_up</i> -->
+             <img style = 'width:30px; position: relative; top:-5px;' src="/images/unlike.png" alt="">
             <%}%>
         </a>
       </span>
       <span>
-        <small style="color: blue; font-size:38px;">
+        <small style="color: blue; font-size:18px;">
           <%= posts[i].comments.length%>
-          <i  class="material-icons toggle-comments" style="font-size:70px;color:rgb(0, 162, 255);position: relative; top:18px;">chat</i>
+          <i  class="material-icons toggle-comments" style=" cursor: pointer; font-size:37px;color:rgb(0, 162, 255);position: relative; top:10px;">chat</i>
         </small>
       </span>
     </div>
@@ -74,7 +83,7 @@
     <form action="/comments/create/" method="POST" id="post-<%= posts[i]._id %>-comments-form">
       <input type="text" name="content" placeholder="comment" class="comment" />
       <input type="hidden" name="post" value="<%= posts[i]._id%>" />
-      <button type = 'submit'><i class='fab fa-telegram' style='font-size:75px;color:rgb(94, 84, 235)'></i></button>
+      <button type = 'submit'><img src="/images/send.png" alt="post-comment" style="width:40px;"></button>
     </form>
 
     <div id="post-comment-<%= posts[i]._id%>" class = "comments-container">

@@ -1,8 +1,8 @@
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
-
+<link rel="stylesheet" href="/css/plugin.css" />
 
 <div class="form">
+  <h2>Log in</h2>
   <form action="/users/create-session" method="POST">
     <input
       type="email"
@@ -22,52 +22,27 @@
     <button
       type="submit"
       class="btn btn-primary form-control"
-      style="margin-bottom: 5px;"
+      style="margin-bottom: 5px"
     >
       Log-in
     </button>
   </form>
   <br />
-  <button class="btn btn-primary form-control bg-light">
-    <a href="/users/auth/google/" style="text-decoration: none; ">
-      <i class="fab fa-google" style="color: crimson;"></i>
-      Sign In With Google
+  <button class="btn btn-primary form-control bg-danger">
+    <a href="/users/auth/google/" style="text-decoration: none; color: white">
+      <i class="fab fa-google" style="color: rgb(248, 245, 245)"></i>
+      Login with Google
     </a>
   </button>
+
   <br /><br />
-    <button class="btn btn-primary form-control bg-light">
-      <img src="/images/icons8-facebook-50-2.png" alt=""><a style="text-decoration: none; " href="/users/auth/facebook">Continue with Facebook</a>
-    </button>
-   
+  <button class="btn btn-primary form-control" style = "background-color: #4141c7;">
+    <img src="/images/icons8-facebook-50-2.png" alt="" /><a
+      style="text-decoration: none; color:white"
+      href="/users/auth/facebook"
+      >Login with Facebook</a>
+  </button>
 
   <br /><br />
   <p><a class="text-primary" href="/reset-password">forget password</a></p>
 </div>
-
-
-<!-- <%- include('_footer'); -%> -->
-
-<script>
-  window.fbAsyncInit = function () {
-    FB.init({
-      appId: "{your-app-id}",
-      cookie: true,
-      xfbml: true,
-      version: "{api-version}",
-    });
-
-    FB.AppEvents.logPageView();
-  };
-
-  (function (d, s, id) {
-    var js,
-      fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {
-      return;
-    }
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  })(document, "script", "facebook-jssdk");
-</script>

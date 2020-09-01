@@ -1,55 +1,73 @@
+<script src="/js/dropdown.js"></script>
 
-<script src = '/js/dropdown.js'></script>
-<link rel="stylesheet" href="/css/dropdown.css">
+<link rel="stylesheet" href="/css/dropdown.css" />
 <header>
-    <div id="navbar" class = "bg-dark">
-        <div id = 'left-nav'>
-            <a href="/users/timeline"><img src = "/images/eroschat_logo.png" alt = "brand-logo"></a>
-        </div>
-        <div id = 'right-nav'>
-            <% if(locals.user){ %>
-                <div id = 'friend-list'>
-                    <a href="/users/show/friend-list">
-                        <i class="material-icons" style="font-size:90px;color:#adb5bd;cursor: pointer;">supervisor_account</i>
-                    </a>
-                </div>
-                <div>
-                    <a href="/users/messages/with-users">
-                        <i class="material-icons" style="font-size:70px;color:#adb5bd;cursor: pointer;">textsms</i>
-                    </a>
-                </div>
-                    <div class="dropdown">
-                        <% if(currentUser.request.length>0) {%>
-                            <h3 id = 'request'><%= currentUser.request.length %></h3>
-                        <%}%>
-                        <img src = '/images/notification.png' onclick="myFunction1()" class="dropbtn" style="width:70px;background-color: transparent;">
-                        
-
-                        <div id="myDropdown1" class="dropdown-content">
-                           <% for(i of currentUser.request) {%>
-                                 <small>new request from <a href="/users/friend/request-list"><%= i.name %></a></small>
-                            <%}if(currentUser.request.length==0){%>
-                                 <p>no notification</p>  
-                            <%}%>
-                        </div>
-                      </div>
-
-                      <div class="dropdown">
-                        <img id = "user-profile" src="<%= locals.user.avatar%>" onclick="myFunction2()" class="dropbtn">
-
-                        <div id="myDropdown2" class="dropdown-content">
-                          <a  href="/users/profile/<%= user.id%>">Profile</a>
-                          <a  href="/users/timeline">Home</a>
-                          <a  href="/users/friend/list">Friends</a>
-                          <a  href="/users/sign-out">Log out</a>
-                        </div>
-                      </div>
-            <%} else {%>
-            <div id = 'user-without-login'>
-                 <div id = 'login-btn'><a href="/">Log-in</a></div>
-                 <div id = 'signup-btn'><a href="/users/sign-up">Sign-up</a></div>
-            </div>
-            <% }%>
-        </div>
+  <div id="navbar" class="bg-dark">
+    <div id="left-nav">
+      <a href="/users/timeline"
+        ><img src="/images/eroschat_logo.png" alt="brand-logo"
+      /></a>
     </div>
+    <div id="right-nav">
+      <% if(locals.user){ %>
+      <div id="friend-list" class="nav-item">
+        <a href="/users/show/friend-list">
+          <img
+            src="/images/add-friend.png"
+            alt="add-friend"
+            style="width: 30px"
+          />
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="/users/messages/with-users">
+          <img src="/images/chat3.png" alt="messages" style="width: 30px" />
+        </a>
+      </div>
+      <div class="dropdown nav-item">
+        <% if(currentUser.request.length>0) {%>
+        <span id="request"><%= currentUser.request.length %></span>
+        <%}%>
+        <img
+          src="/images/bell1.png"
+          onclick="myFunction1()"
+          class="dropbtn"
+          style="width: 35px; background-color: transparent"
+        />
+
+        <div id="myDropdown1" class="dropdown-content">
+          <% for(i of currentUser.request) {%>
+          <small
+            >new request from
+            <a href="/users/friend/request-list"><%= i.name %></a></small
+          >
+          <%}if(currentUser.request.length==0){%>
+          <p>no notification</p>
+          <%}%>
+        </div>
+      </div>
+
+      <div class="dropdown nav-item">
+        <img
+          id="user-profile"
+          src="<%= locals.user.avatar%>"
+          onclick="myFunction2()"
+          class="dropbtn"
+        />
+
+        <div id="myDropdown2" class="dropdown-content">
+          <a href="/users/profile/<%= user.id%>">Profile</a>
+          <a href="/users/timeline">Home</a>
+          <a href="/users/friend/list">Friends</a>
+          <a href="/users/sign-out">Log out</a>
+        </div>
+      </div>
+      <%} else {%>
+      <div id="user-without-login">
+        <div id="login-btn"><a href="/">Log-in</a></div>
+        <div id="signup-btn"><a href="/users/sign-up">Sign-up</a></div>
+      </div>
+      <% }%>
+    </div>
+  </div>
 </header>
